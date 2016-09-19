@@ -1009,7 +1009,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="using pelican"></category><category term="first post"></category></entry><entry><title>GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/gmm-plots-2.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:gmm-plots-2.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="introduction"></category></entry><entry><title>GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/gmm-plots-2.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:gmm-plots-2.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *

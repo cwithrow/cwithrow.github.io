@@ -1009,4 +1009,4 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="using pelican"></category><category term="first post"></category></entry></feed>
+</summary><category term="introduction"></category></entry></feed>
