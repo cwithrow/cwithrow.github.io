@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Analyzing Astronomical Data in Apache Spark- Discussion &mdash; C R Withrow, Portfolio </title>
+  <title>Spark, Jupyter, AWS, Oh my! &mdash; C R Withrow, Portfolio </title>
   <meta name="author" content="C Withrow">
 
 
@@ -17,10 +17,11 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta name="robots" content="noindex, nofollow" />
 
-    <link href="./favicon.png" rel="icon">
+    <link href="../favicon.png" rel="icon">
 
-  <link href="./theme/css/main.css" media="screen, projection"
+  <link href="../theme/css/main.css" media="screen, projection"
         rel="stylesheet" type="text/css">
 
   <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
@@ -31,7 +32,7 @@
 
 <body>
   <header role="banner"><hgroup>
-  <h1><a href="./">C R Withrow, Portfolio </a></h1>
+  <h1><a href="../">C R Withrow, Portfolio </a></h1>
 </hgroup></header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
 </ul>
@@ -39,13 +40,13 @@
 
 <ul class="main-navigation">
       <li >
-        <a href="./category/a-series-of-unfortunate-code.html">A series of unfortunate code</a>
+        <a href="../category/a-series-of-unfortunate-code.html">A series of unfortunate code</a>
       </li>
       <li >
-        <a href="./category/about.html">About</a>
+        <a href="../category/about.html">About</a>
       </li>
-      <li class="active">
-        <a href="./category/tales-from-the-data.html">Tales from the data</a>
+      <li >
+        <a href="../category/tales-from-the-data.html">Tales from the data</a>
       </li>
 </ul></nav>
   <div id="main">
@@ -53,9 +54,9 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Analyzing Astronomical Data in Apache Spark- Discussion</h1>
+      <h1 class="entry-title">Spark, Jupyter, AWS, Oh my!</h1>
     <p class="meta">
-<time datetime="2016-09-11T20:00:00-05:00" pubdate>Sun 11 September 2016</time>    </p>
+<time datetime="2018-02-04T20:00:00-06:00" pubdate>Sun 04 February 2018</time>    </p>
 </header>
 
   <div class="entry-content"><style type="text/css">/*!
@@ -1035,21 +1036,79 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The overall goal was to explore the potential of using Spark to process and analyze astronomical data.
-Specifically, the plan was to use PySpark to implement a modified Gaussian mixture model available 
-from <a href="www.astroml.org">astroML</a>, a library of Python based machine learning code from University of Washington,
-and use it to characterize photometric data from the <a href="www.sdss.org">Sloan Digital Sky Survey</a>.</p>
+<h1 id="Spark,-Jupyter,-AWS?-Oh-my!">Spark, Jupyter, <span class="caps">AWS</span>? Oh my!<a class="anchor-link" href="#Spark,-Jupyter,-AWS?-Oh-my!">¶</a></h1><p>First make it sound fancy. Then say how easy it actually is.
+The goal of this guide is to walk you through setting up distributed analysis on a remote server (<span class="caps">AWS</span>) with Apache Spark, simply using Cygwin and Jupyter, in your browser. On windows! Sound complicated? It can be, but it gets easier&nbsp;everyday.</p>
+<p>Everybody&#8217;s talking about Jupyter, some sort of &#8220;notebook&#8221; thing that let&#8217;s you see your code and graphs in one neat little page. You should try that out. Oh, and Spark! Spark lets you analyze data fast and easily! &#8220;Ok!&#8221; You say. &#8220;I can do easy.&#8221; But wait, what you really need to try is <span class="caps">AWS</span>, it&#8217;s /the/ cloud to put your data on. But you&#8217;re on Windows, you don&#8217;t have a lot of time, and despite being fairly tech capable, after a few environment path changes it isn&#8217;t quite working and you&#8217;re frustrated. This tutorial is designed to hold your hand through the process so you (hopefully) don&#8217;t have to google every&nbsp;step.</p>
+<p>Click here to jump to quick instructions for accessing the instance after&nbsp;setup.</p>
+<p>Key software for this&nbsp;goal:</p>
+<ol>
+<li><a href="https://cygwin.com/install.html">Cygwin</a>,&nbsp;OpenSSH</li>
+<li><a href="http://aws.amazon.com/free">Amazon Web Services (<span class="caps">AWS</span>)</a></li>
+<li><a href="https://www.continuum.io/downloads#all">Anaconda Python&nbsp;Distribution</a></li>
+<li><a href="http://spark.apache.org/downloads.html">Apache&nbsp;Spark</a></li>
+</ol>
+<p>Key&nbsp;Steps:</p>
+<ol>
+<li>) Set up aws&nbsp;account</li>
+<li>) Set up anaconda and&nbsp;jupyter</li>
+<li>) Add spark and pyspark settings
+Voila!&nbsp;Extra </li>
+<li>) Set up cluster /run notebooks from&nbsp;project</li>
+</ol>
+<p>Other resources:
+This site gives a <em>very</em> informative overview of getting set up on <span class="caps">EC2</span> <a href="https://sparkour.urizone.net/recipes/installing-ec2/">https://sparkour.urizone.net/recipes/installing-ec2/</a>.</p>
+<h1 id="Initial-setup">Initial setup<a class="anchor-link" href="#Initial-setup">¶</a></h1><p><strong> Install Cygwin </strong> 
+First download Cygwin (<a href="https://cygwin.com/install.html">https://cygwin.com/install.html</a>) if you don&#8217;t already have it. Cygwin is a simple linux emulator for windows- it isn&#8217;t necessary for using <span class="caps">AWS</span> and Spark, but it&#8217;s handy and has an easy secure shell, OpenSSH for connecting to your <span class="caps">AWS</span> instance. Since OpenSSH is not installed by default, use the search box to search for it in the packages and deselect &#8220;skip&#8221;. If you&#8217;ve previously installed Cygwin just open the installer to add&nbsp;OpenSSH.</p>
+<p><strong> Set up <span class="caps">AWS</span> account </strong>
+Then, head over to <a href="http://aws.amazon.com/free">http://aws.amazon.com/free</a> to create an account to use Amazon Web Services, an umbrella for many nifty services, the most popular being its Elastic Compute (generation 2) cloud. <span class="caps">EC2</span> lets you remotely access a server that&#8217;s maintained by amazon. Think of it as hardware as a service, so that if you happen to need a lot of servers for analyzing a large set of data this week, you don&#8217;t have to purchase and set up the actual hardware yourself.  The term elastic is used because the resources you are billed for stretches or shrinks to fit the amount of resources (space, computing time) you actually used. The free tier lets you use 750 hours a month, with various limitations. Since they require a credit card, make sure you pay attention to which services you select in the following steps, and at sign up, opt for usage alerts via&nbsp;email.</p>
+<ul>
+<li>Navigating the <span class="caps">AWS</span>: After you set up an account, you can select services from the management console which you can generally access via the golden cube on the upper left of the page. Settings and billing can be accessed on the upper right, where you&#8217;ll also see the time zone of servers you have access&nbsp;to.</li>
+</ul>
+<p><img src="Images/AWS-Console.png" />
+<img alt="Image of AWS services in console" src="/Images/AWS-console.png" title="AWS Console">
+We will use the circled services, starting with <span class="caps">EC2</span>.</img></p>
+<p><strong> Keys </strong>
+Select <span class="caps">EC2</span> from the services list, then on the left the &#8220;dashboard&#8221; should list Keys Pairs under Network <span class="amp">&amp;</span> Security. Click Create Key Pair to and give it a relevant name for the project you&#8217;be creating this Linux instance for. Doing so creates a .pem file which is automatically downloaded- save this in a location easily accessed from command line. <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair">http://docs.aws.amazon.com/<span class="caps">AWSEC2</span>/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair</a>
+Then return to the services list and select <span class="caps">IAM</span>. 
+<strong> <span class="caps">IAM</span> </strong>
+<span class="caps">IAM</span>, Identity Access Management, helps manage the security of your instance and data. It allows you to easily set which types of security are required (access by specific ports for instance). It also lets you easily manage access for different services in the case you were using <span class="caps">AWS</span> with a group or company. 
+<em>Add a Role: </em>
+A Role can specify which services an instance is able to use, < may help prevent billing for unintended services> and is a good idea to add before starting an instance since they cannot be added&nbsp;later.</p>
+<pre><code>- Select the IAM service from under Security, Identity & Compliance.
+- On the left, select Roles and *Create New Role*
+- 
+</code></pre>
+<p><strong>Security Group</strong>
+Back to <span class="caps">EC2</span>, choose Security Group from the side dashboard and then <em>Create Security Group</em>. Give the group a name (same as group name) and description such as &#8220;For using Spark&#8221; then give it some rules like those displayed here: 
+<img alt="Image of security group rules" src="/Images/Security-group.png" title="Inbound Rules">
+When you add each rule you can select the type, protocol, port range and allowed source- if you want to be able to access from any <span class="caps">IP</span> leave it as 0, but if you know you&#8217;ll mostly be using one <span class="caps">IP</span> you can select &#8220;My <span class="caps">IP</span>&#8221; (and edit the rules as needed). 
+Though these rules can also be set when you create an instance, having a saved group makes future creation easier.</img></p>
+<p><strong> Create a Linux&nbsp;Instance </strong></p>
+<p>Finally! Choose &#8220;instances&#8221; from the <span class="caps">EC2</span> side panel, and select the <em>Launch Instance</em> button. After each configuration step, you can either launch with defaults or continue to next step to configure further- be sure to always select this option.
+1) Here you can select which Amazon Machine image (operating system + application server + applications) best suits your needs. I chose the Linux system, which includes Java, Python and <span class="caps">AWS</span> command line if you want to try using that.<br>
+2) Next, pick a processor setup based on what is available with your account. For free this is t2.micro, which includes 1 processor and 1 <span class="caps">GB</span> of memory.
+3) If you made an <span class="caps">IAM</span> role above, you can select it here- also select &#8220;Protect against accidental termination&#8221; to keep the instance from accidental deletion.
+4) Keep storage default 5) Add any tags
+6) Since you already created a security group previously, you simply have to choose it here from the dropdown menu.
+Now, hit the blue <em>Review and Launch</em> button and after confirming your settings, launch your instance.</br></p>
+<p><strong> Connecting to the Instance </strong>
+Launching the instance simply turns it on on Amazon&#8217;s side. We still need to connect to it from our side to use it. Interacting with the instance is done through command line. Many tutorials have you using Putty or other means to log in and access the instance but I found Cygwin&#8217;s OpenSSH to be easy enough using the command suggested by amazon. You should see this on your screen:<br>
+<img alt="Image of instances" src="/Images/instance.png" title="Instances" /></br></p>
+<p>Information about the selected instance, including the public <span class="caps">IP</span> will be shown on bottom.
+Right click the instance you launched and click <em>Connect</em>. A window pops up like so
+<img alt="Image of instance connection window" src="/Images/connect-instance.png" title="Connect to instance screen">
+which tells you everything you need to connect. Simply navigate in Cygwin to the directory which contains your key (.pem) file from earlier and copy the example command provided. [<strong>Tip</strong> You can use cntrl+shift+insert to paste into Cywgin]
+Example:</img></p>
+<p>ssh -i &#8220;sparkey.pem&#8221; ec2-user@ec2-##-##-###-##.us-west-2.compute.amazonaws.com
+    &#8216;ssh&#8217; opens up OpenSSH secure shell, &#8216;-i <em>filename</em>&#8216; gives the public key authorization file, &#8216;ec2-user&#8217; is the username, followed by the address of the host you are connecting&nbsp;to.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-</div>
+<div class="text_cell_render border-box-sizing rendered_html">
 </div>
 </div>
 </div>
@@ -1088,8 +1147,8 @@ and use it to characterize photometric data from the <a href="www.sdss.org">Sloa
         C Withrow
     </span>
   </span>
-<time datetime="2016-09-11T20:00:00-05:00" pubdate>Sun 11 September 2016</time>  <span class="categories">
-    <a class='category' href='./category/tales-from-the-data.html'>Tales From the Data</a>
+<time datetime="2018-02-04T20:00:00-06:00" pubdate>Sun 04 February 2018</time>  <span class="categories">
+    <a class='category' href='../category/down-the-rabbit-hole.html'>Down the Rabbit Hole</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>
@@ -1101,19 +1160,19 @@ and use it to characterize photometric data from the <a href="www.sdss.org">Sloa
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="./safe-app.html">SAFE! App</a>
+          <a href="../safe-app.html">SAFE! App</a>
       </li>
       <li class="post">
-          <a href="./about me.html">About me</a>
+          <a href="../about me.html">About me</a>
       </li>
       <li class="post">
-          <a href="./analyzing-astro-data-in-spark.html">Analyzing Astronomical Data in Apache Spark- Discussion</a>
+          <a href="../analyzing-astro-data-in-spark.html">Analyzing Astronomical Data in Apache Spark- Discussion</a>
       </li>
       <li class="post">
-          <a href="./navigation.html">Navigation</a>
+          <a href="../navigation.html">Navigation</a>
       </li>
       <li class="post">
-          <a href="./astro-data-in-spark-gmm-models.html">Astronomical Data in Spark: GMM Models From Prepared Data</a>
+          <a href="../astro-data-in-spark-gmm-models.html">Astronomical Data in Spark: GMM Models From Prepared Data</a>
       </li>
     </ul>
   </section>
@@ -1121,16 +1180,16 @@ and use it to characterize photometric data from the <a href="www.sdss.org">Sloa
       
     <h1>Categories</h1>
     <ul id="recent_posts">
-        <li><a href="./category/a-series-of-unfortunate-code.html">A Series Of Unfortunate Code</a></li>
-        <li><a href="./category/about.html">about</a></li>
-        <li><a href="./category/tales-from-the-data.html">Tales From the Data</a></li>
+        <li><a href="../category/a-series-of-unfortunate-code.html">A Series Of Unfortunate Code</a></li>
+        <li><a href="../category/about.html">about</a></li>
+        <li><a href="../category/tales-from-the-data.html">Tales From the Data</a></li>
     </ul>
   </section>
  
 
   <section>
   <h1>Tags</h1>
-    <a href="./tag/apache-spark.html">apache spark</a>  </section>
+    <a href="../tag/apache-spark.html">apache spark</a>  </section>
 
 
     <section>
@@ -1147,8 +1206,8 @@ and use it to characterize photometric data from the <a href="www.sdss.org">Sloa
     Copyright &copy;  2016&ndash;2017  C Withrow &mdash;
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
-  <script src="./theme/js/modernizr-2.0.js"></script>
-  <script src="./theme/js/ender.js"></script>
-  <script src="./theme/js/octopress.js" type="text/javascript"></script>
+  <script src="../theme/js/modernizr-2.0.js"></script>
+  <script src="../theme/js/ender.js"></script>
+  <script src="../theme/js/octopress.js" type="text/javascript"></script>
 </body>
 </html>

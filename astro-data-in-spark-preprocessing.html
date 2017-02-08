@@ -1,93 +1,69 @@
 <!DOCTYPE html>
-<html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="author" content="C Withrow" />
-    <meta name="robots" content="index, follow"/>
+  <meta charset="utf-8">
+  <title>Astronomical Data in Spark- PreProcessing &mdash; C R Withrow, Portfolio </title>
+  <meta name="author" content="C Withrow">
 
-    <meta property="og:title" content="Astronomical Data in Spark- PreProcessing"/>
-    <meta property="og:url" content="./astro-data-in-spark-preprocessing.html"/>
-    <meta property="og:site_name" content="C Withrow Portfolio"/>
-    <meta property="og:type" content="article"/>
 
-    <link rel="canonical" href="./astro-data-in-spark-preprocessing.html" />
 
-    <title>Astronomical Data in Spark- PreProcessing | C Withrow Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
 
-    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
-    <link href="http://cwithrow.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="C Withrow Portfolio Atom Feed" />
 
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-    <script type="text/javascript">
-        stLight.options({
-            publisher: "",
-            doNotHash: false,
-            doNotCopy: false,
-            hashAddressBar: false
-        });
-    </script>
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="./favicon.png" rel="icon">
+
+  <link href="./theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
 </head>
 
-<body id="index">
-    <div class="row-fluid">
-        <div class="span10 offset1">
-            <header id="banner" >
-                <h1>
-                    <a href="./">C Withrow Portfolio </a>
-                </h1>
-                <nav class="navbar">
-                    <div class="navbar-inner">
-                        <ul class="nav">
-                            <li ><a href="./category/posts.html">Posts</a></li>
-                            <li class="active"><a href="./category/spark.html">Spark</a></li>
-                        </ul>
-
-                    </div>
-                </nav>
-            </header><!-- /#banner -->
-        </div>
-    </div>
-
-    <div class="row-fluid">
-        <div class="span10 offset1">
-            <div class="row-fluid">
-<div class="span10 offset1">
-  <section>
-    <article>
-      <header>
-        <h1 class="entry-title">
-          <a href="./astro-data-in-spark-preprocessing.html" rel="bookmark"
-             title="Permalink to Astronomical Data in Spark- PreProcessing">Astronomical Data in Spark- PreProcessing</a></h1>
-      </header>
-      <div class="entry-content">
-<footer class="post-info">
-    <address class="vcard author">
-        by <a class="url fn" href="./author/c-withrow.html">C Withrow</a>
-    </address>
-
-    in <a href="./category/spark.html">Spark</a>
-
-    on 2016-08-10
-
-        |
-        tags:         <a href="./tag/apache-spark.html">apache spark</a>
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="./">C R Withrow, Portfolio </a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
 
 
+<ul class="main-navigation">
+      <li >
+        <a href="./category/a-series-of-unfortunate-code.html">A series of unfortunate code</a>
+      </li>
+      <li >
+        <a href="./category/about.html">About</a>
+      </li>
+      <li class="active">
+        <a href="./category/tales-from-the-data.html">Tales from the data</a>
+      </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Astronomical Data in Spark- PreProcessing</h1>
+    <p class="meta">
+<time datetime="2016-08-10T18:00:00-05:00" pubdate>Wed 10 August 2016</time>    </p>
+</header>
 
-    
-</footer><!-- /.post-info -->
-
-        <style type="text/css">/*!
+  <div class="entry-content"><style type="text/css">/*!
 *
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
+/* <span class="caps">CSS</span> font colors for translated <span class="caps">ANSI</span> colors. */
 .ansibold {
   font-weight: bold;
 }
@@ -173,13 +149,13 @@ div.cell {
   background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
-  border-left-color: #E3F2FD;
+  border-left-color: #<span class="caps">90CAF9</span>;
+  border-left-color: #<span class="caps">E3F2FD</span>;
   border-left-width: 1px;
   padding-left: 5px;
-  border-right-color: #E3F2FD;
+  border-right-color: #<span class="caps">E3F2FD</span>;
   border-right-width: 1px;
-  background: #E3F2FD;
+  background: #<span class="caps">E3F2FD</span>;
 }
 @media print {
   div.cell.jupyter-soft-selected {
@@ -190,7 +166,7 @@ div.cell.selected {
   border-color: #ababab;
   border-left-width: 0px;
   padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+  background: linear-gradient(to right, #<span class="caps">42A5F5</span> -40px, #<span class="caps">42A5F5</span> 5px, transparent 5px, transparent 100%);
 }
 @media print {
   div.cell.selected {
@@ -200,13 +176,13 @@ div.cell.selected {
 div.cell.selected.jupyter-soft-selected {
   border-left-width: 0;
   padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+  background: linear-gradient(to right, #<span class="caps">42A5F5</span> -40px, #<span class="caps">42A5F5</span> 7px, #<span class="caps">E3F2FD</span> 7px, #<span class="caps">E3F2FD</span> 100%);
 }
 .edit_mode div.cell.selected {
-  border-color: #66BB6A;
+  border-color: #<span class="caps">66BB6A</span>;
   border-left-width: 0px;
   padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+  background: linear-gradient(to right, #<span class="caps">66BB6A</span> -40px, #<span class="caps">66BB6A</span> 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -363,7 +339,7 @@ div.input {
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_prompt {
-  color: #303F9F;
+  color: #<span class="caps">303F9F</span>;
   border-top: 1px solid transparent;
 }
 div.input_area > div.highlight {
@@ -404,7 +380,7 @@ div.input_area > div.highlight > pre {
   overflow-x: auto;
 }
 .CodeMirror-lines {
-  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* In <span class="caps">CM2</span>, this used to be 0.4em, but in <span class="caps">CM3</span> it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
   padding: 0.4em;
 }
@@ -416,7 +392,7 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* In <span class="caps">CM3</span> this went to 4px from 0 in <span class="caps">CM2</span>. We need the 0 value because of how we size */
   /* .CodeMirror-lines */
   padding: 0;
   border: 0;
@@ -441,7 +417,7 @@ Adapted from GitHub theme
   color: #333333;
 }
 .highlight-string {
-  color: #BA2121;
+  color: #<span class="caps">BA2121</span>;
 }
 .highlight-comment {
   color: #408080;
@@ -464,11 +440,11 @@ Adapted from GitHub theme
   color: #f00;
 }
 .highlight-operator {
-  color: #AA22FF;
+  color: #<span class="caps">AA22FF</span>;
   font-weight: bold;
 }
 .highlight-meta {
-  color: #AA22FF;
+  color: #<span class="caps">AA22FF</span>;
 }
 /* previously not defined, copying from default codemirror */
 .highlight-def {
@@ -516,7 +492,7 @@ Adapted from GitHub theme
   color: #000;
 }
 .cm-s-ipython span.cm-operator {
-  color: #AA22FF;
+  color: #<span class="caps">AA22FF</span>;
   font-weight: bold;
 }
 .cm-s-ipython span.cm-variable-2 {
@@ -530,13 +506,13 @@ Adapted from GitHub theme
   font-style: italic;
 }
 .cm-s-ipython span.cm-string {
-  color: #BA2121;
+  color: #<span class="caps">BA2121</span>;
 }
 .cm-s-ipython span.cm-string-2 {
   color: #f50;
 }
 .cm-s-ipython span.cm-meta {
-  color: #AA22FF;
+  color: #<span class="caps">AA22FF</span>;
 }
 .cm-s-ipython span.cm-qualifier {
   color: #555;
@@ -591,9 +567,9 @@ div.output_wrapper {
 }
 /* class for the output area when it should be height-limited */
 div.output_scroll {
-  /* ideally, this would be max-height, but FF barfs all over that */
+  /* ideally, this would be max-height, but <span class="caps">FF</span> barfs all over that */
   height: 24em;
-  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  /* <span class="caps">FF</span> needs this *and the wrapper* to specify full width, or it will shrinkwrap */
   width: 100%;
   overflow: auto;
   border-radius: 2px;
@@ -627,7 +603,7 @@ div.out_prompt_overlay {
   border-radius: 2px;
 }
 div.out_prompt_overlay:hover {
-  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  /* use inner shadow to get border that is computed the same on WebKit/<span class="caps">FF</span> */
   -webkit-box-shadow: inset 0 0 1px #000;
   box-shadow: inset 0 0 1px #000;
   background: rgba(240, 240, 240, 0.5);
@@ -955,25 +931,25 @@ h6:hover .anchor-link {
 <style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .err { border: 1px solid #<span class="caps">FF0000</span> } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
 .highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cp { color: #<span class="caps">BC7A00</span> } /* Comment.Preproc */
 .highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gr { color: #<span class="caps">FF0000</span> } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
 .highlight .gi { color: #00A000 } /* Generic.Inserted */
 .highlight .go { color: #888888 } /* Generic.Output */
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .gt { color: #<span class="caps">0044DD</span> } /* Generic.Traceback */
 .highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
 .highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
 .highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
@@ -981,36 +957,36 @@ h6:hover .anchor-link {
 .highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
 .highlight .kt { color: #B00040 } /* Keyword.Type */
 .highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .s { color: #<span class="caps">BA2121</span> } /* Literal.String */
 .highlight .na { color: #7D9029 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .nc { color: #<span class="caps">0000FF</span>; font-weight: bold } /* Name.Class */
 .highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .nd { color: #<span class="caps">AA22FF</span> } /* Name.Decorator */
 .highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .ne { color: #<span class="caps">D2413A</span>; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #<span class="caps">0000FF</span> } /* Name.Function */
+.highlight .nl { color: #<span class="caps">A0A000</span> } /* Name.Label */
+.highlight .nn { color: #<span class="caps">0000FF</span>; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .ow { color: #<span class="caps">AA22FF</span>; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
 .highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sb { color: #<span class="caps">BA2121</span> } /* Literal.String.Backtick */
+.highlight .sc { color: #<span class="caps">BA2121</span> } /* Literal.String.Char */
+.highlight .sd { color: #<span class="caps">BA2121</span>; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #<span class="caps">BA2121</span> } /* Literal.String.Double */
+.highlight .se { color: #<span class="caps">BB6622</span>; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #<span class="caps">BA2121</span> } /* Literal.String.Heredoc */
+.highlight .si { color: #<span class="caps">BB6688</span>; font-weight: bold } /* Literal.String.Interpol */
 .highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .sr { color: #<span class="caps">BB6688</span> } /* Literal.String.Regex */
+.highlight .s1 { color: #<span class="caps">BA2121</span> } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
@@ -1019,38 +995,38 @@ h6:hover .anchor-link {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-fg { color: #<span class="caps">3E424D</span>; }
+.ansi-black-bg { background-color: #<span class="caps">3E424D</span>; }
 .ansi-black-intense-fg { color: #282C36; }
 .ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-red-fg { color: #<span class="caps">E75C58</span>; }
+.ansi-red-bg { background-color: #<span class="caps">E75C58</span>; }
+.ansi-red-intense-fg { color: #<span class="caps">B22B31</span>; }
+.ansi-red-intense-bg { background-color: #<span class="caps">B22B31</span>; }
 .ansi-green-fg { color: #00A250; }
 .ansi-green-bg { background-color: #00A250; }
 .ansi-green-intense-fg { color: #007427; }
 .ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-yellow-fg { color: #<span class="caps">DDB62B</span>; }
+.ansi-yellow-bg { background-color: #<span class="caps">DDB62B</span>; }
+.ansi-yellow-intense-fg { color: #<span class="caps">B27D12</span>; }
+.ansi-yellow-intense-bg { background-color: #<span class="caps">B27D12</span>; }
+.ansi-blue-fg { color: #<span class="caps">208FFB</span>; }
+.ansi-blue-bg { background-color: #<span class="caps">208FFB</span>; }
+.ansi-blue-intense-fg { color: #<span class="caps">0065CA</span>; }
+.ansi-blue-intense-bg { background-color: #<span class="caps">0065CA</span>; }
+.ansi-magenta-fg { color: #<span class="caps">D160C4</span>; }
+.ansi-magenta-bg { background-color: #<span class="caps">D160C4</span>; }
 .ansi-magenta-intense-fg { color: #A03196; }
 .ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
+.ansi-cyan-fg { color: #<span class="caps">60C6C8</span>; }
+.ansi-cyan-bg { background-color: #<span class="caps">60C6C8</span>; }
+.ansi-cyan-intense-fg { color: #<span class="caps">258F8F</span>; }
+.ansi-cyan-intense-bg { background-color: #<span class="caps">258F8F</span>; }
+.ansi-white-fg { color: #<span class="caps">C5C1B4</span>; }
+.ansi-white-bg { background-color: #<span class="caps">C5C1B4</span>; }
+.ansi-white-intense-fg { color: #<span class="caps">A1A6B2</span>; }
+.ansi-white-intense-bg { background-color: #<span class="caps">A1A6B2</span>; }
 
 .ansi-bold { font-weight: bold; }
 </style>
@@ -1059,18 +1035,18 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-Pre-processing">Data Pre-processing<a class="anchor-link" href="#Data-Pre-processing">¶</a></h3><p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models</p>
+<h3 id="Data-Pre-processing">Data Pre-processing<a class="anchor-link" href="#Data-Pre-processing">¶</a></h3><p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering&nbsp;models</p>
 <pre><code>- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
 - the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
 - a plot of the color distributions for the catalog stars is generated at end
 </code></pre>
-<p>Data sources:</p>
+<p>Data&nbsp;sources:</p>
 <ul>
-<li><p>Raw data is a 2 x 10 sqr deg section of sky uploaded here from local drive, but previously downloaded from the SDSS SkyServer online database using an SQL query (detailed query in appendix of report)
- The flux is taken from a single observations of objects</p>
+<li><p>Raw data is a 2 x 10 sqr deg section of sky uploaded here from local drive, but previously downloaded from the <span class="caps">SDSS</span> SkyServer online database using an <span class="caps">SQL</span> query (detailed query in appendix of report)
+ The flux is taken from a single observations of&nbsp;objects</p>
 </li>
 <li><p>Standard star data is from Stripe 82 catalog by Ivezic et all 2007 available at     <a href="http://www.astro.washington.edu/users/ivezic/sdss/catalogs/stripe82.html">http://www.astro.washington.edu/users/ivezic/sdss/catalogs/stripe82.html</a>
- This data is from repeated observations which have been averaged and calibrated</p>
+ This data is from repeated observations which have been averaged and&nbsp;calibrated</p>
 </li>
 </ul>
 </div>
@@ -1105,7 +1081,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>**Definitions for loading and converting data</p>
+<p>**Definitions for loading and converting&nbsp;data</p>
 </div>
 </div>
 </div>
@@ -1252,7 +1228,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>**Load raw/noisy data (previously downloaded from SDSS) and correct for extinction</p>
+<p>**Load raw/noisy data (previously downloaded from <span class="caps">SDSS</span>) and correct for&nbsp;extinction</p>
 </div>
 </div>
 </div>
@@ -1386,7 +1362,7 @@ Shape of X: 86290 rows
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>**Load standard star catalog and correct for extinction</p>
+<p>**Load standard star catalog and correct for&nbsp;extinction</p>
 </div>
 </div>
 </div>
@@ -1650,7 +1626,7 @@ None
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>**Prepare files for crossmatching</p>
+<p>**Prepare files for&nbsp;crossmatching</p>
 </div>
 </div>
 </div>
@@ -1823,7 +1799,7 @@ None
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>**Plot of Stripe 82 calibrated standard star catalog</p>
+<p>**Plot of Stripe 82 calibrated standard star&nbsp;catalog</p>
 </div>
 </div>
 </div>
@@ -3396,34 +3372,77 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>
-
-
-      </div><!-- /.entry-content -->
-
-    </article>
-  </section>
 </div>
-            </div>
-        </div>
-    </div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">
+        C Withrow
+    </span>
+  </span>
+<time datetime="2016-08-10T18:00:00-05:00" pubdate>Wed 10 August 2016</time>  <span class="categories">
+    <a class='category' href='./category/tales-from-the-data.html'>Tales From the Data</a>
+  </span>
+  <span class="categories">
+    <a class="category" href="./tag/apache-spark.html">apache spark</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
-    <footer id="site-footer">
-        <div class="row-fluid">
-            <div class="span10 offset1">
-                <address>
-                    <p>
-                        This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                    </p>
-                    <p>
-                        <a href="http://github.com/jsliang/pelican-fresh/">Fresh</a> is a responsive theme designed by <a href="http://jsliang.com/">jsliang</a> and <a href="https://github.com/jsliang/pelican-fresh/graphs/contributors">contributors</a>.
-                        Special thanks to <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.
-                    </p>
-                </address>
-            </div>
-        </div>
-    </footer>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="./safe-app.html">SAFE! App</a>
+      </li>
+      <li class="post">
+          <a href="./about me.html">About me</a>
+      </li>
+      <li class="post">
+          <a href="./analyzing-astro-data-in-spark.html">Analyzing Astronomical Data in Apache Spark- Discussion</a>
+      </li>
+      <li class="post">
+          <a href="./navigation.html">Navigation</a>
+      </li>
+      <li class="post">
+          <a href="./astro-data-in-spark-gmm-models.html">Astronomical Data in Spark: GMM Models From Prepared Data</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="./category/a-series-of-unfortunate-code.html">A Series Of Unfortunate Code</a></li>
+        <li><a href="./category/about.html">about</a></li>
+        <li><a href="./category/tales-from-the-data.html">Tales From the Data</a></li>
+    </ul>
+  </section>
+ 
 
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <section>
+  <h1>Tags</h1>
+    <a href="./tag/apache-spark.html">apache spark</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://www.linkedin.com/in/candice-withrow" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:candice.withrow@gmail.com" target="_blank">E-mail</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2016&ndash;2017  C Withrow &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="./theme/js/modernizr-2.0.js"></script>
+  <script src="./theme/js/ender.js"></script>
+  <script src="./theme/js/octopress.js" type="text/javascript"></script>
 </body>
 </html>
