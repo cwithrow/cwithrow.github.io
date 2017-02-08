@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>C R Withrow, Portfolio</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-02-07T20:00:00-06:00</updated><entry><title>SAFE! App</title><link href="http://cwithrow.github.io/safe-app.html" rel="alternate"></link><published>2017-02-07T20:00:00-06:00</published><updated>2017-02-07T20:00:00-06:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-02-07:safe-app.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>C. R. Withrow, Portfolio</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-02-07T20:00:00-06:00</updated><entry><title>SAFE! App</title><link href="http://cwithrow.github.io/safe-app.html" rel="alternate"></link><published>2017-02-07T20:00:00-06:00</published><updated>2017-02-07T20:00:00-06:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-02-07:safe-app.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2010,17 +2010,6 @@ h6:hover .anchor-link {
 I recently completed a masters in computer science and reside in Austin, &lt;span class="caps"&gt;TX&lt;/span&gt;. In my program I was introduced to theory and tools of data analytics, and my thesis project explored the potential of Apache Spark for analyzing astronomical data. I also have a degree in physics, and spent time studying engineering- I won&amp;#8217;t be content until I understand how everything works.&lt;/profile&gt;&lt;/p&gt;
 &lt;p&gt;Outside of tech, I strive to spend every moment in nature or&amp;nbsp;painting.&lt;/p&gt;
 &lt;p&gt;&lt;link resume="" to=""&gt; &lt;linkedin&gt;&lt;/linkedin&gt;&lt;/link&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
