@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>C. R. Withrow, Portfolio</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2016-09-11T20:00:00-05:00</updated><entry><title>About me</title><link href="http://cwithrow.github.io/about%20me.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:about me.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>C. R. Withrow, Portfolio</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-02-01T20:00:00-06:00</updated><entry><title>About me</title><link href="http://cwithrow.github.io/about%20me.html" rel="alternate"></link><published>2017-02-01T20:00:00-06:00</published><updated>2017-02-01T20:00:00-06:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-02-01:about me.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -976,7 +976,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;img alt="profile" src="https://dl.dropboxusercontent.com/u/60129564/Website/profile150x170.jpg"&gt; &lt;strong&gt;Candice R Withrow, MS in Comp Sci&lt;/strong&gt;&lt;/img&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="profile" src="https://dl.dropboxusercontent.com/u/60129564/Website/profile150x170.jpg"&gt; &lt;strong&gt;Candice R Withrow&lt;/strong&gt;, MS in Comp Sci&lt;/img&gt;&lt;/p&gt;
 &lt;p&gt;I recently completed a masters in computer science and reside in Austin, TX. In my program I was introduced to theory and tools of data analytics, and my thesis project explored the potential of Apache Spark for analyzing astronomical data. I also have a degree in physics, and spent time studying engineering- I won't be content until I understand how everything works.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Basic experience with:&lt;/strong&gt; Apache Spark/Dataframes, 
                            Python w/ libraries (Scikit learn, Numpy)

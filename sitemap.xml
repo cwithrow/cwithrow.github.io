@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/</loc>
-<lastmod>2017-02-14T13:47:51-00:00</lastmod>
+<lastmod>2017-02-14T13:53:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/archives.html</loc>
-<lastmod>2017-02-14T13:47:51-00:00</lastmod>
+<lastmod>2017-02-14T13:53:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tags.html</loc>
-<lastmod>2017-02-14T13:47:51-00:00</lastmod>
+<lastmod>2017-02-14T13:53:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/categories.html</loc>
-<lastmod>2017-02-14T13:47:51-00:00</lastmod>
+<lastmod>2017-02-14T13:53:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/about me.html</loc>
-<lastmod>2016-09-11T20:00:00-05:00</lastmod>
+<lastmod>2017-02-01T20:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -68,7 +68,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/category/about.html</loc>
-<lastmod>2016-09-11T20:00:00-05:51</lastmod>
+<lastmod>2017-02-01T20:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -96,7 +96,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/author/c-withrow.html</loc>
-<lastmod>2016-09-11T20:00:00-05:51</lastmod>
+<lastmod>2017-02-01T20:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
