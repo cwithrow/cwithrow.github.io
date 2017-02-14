@@ -976,24 +976,13 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;img alt="profile" src="https://dl.dropboxusercontent.com/u/60129564/Website/profile150x170.jpg" /&gt;&lt;/p&gt;
-&lt;center&gt;Candice R Withrow, MS in Comp Sci&lt;/center&gt;&lt;p&gt;I recently completed a masters in computer science and reside in Austin, TX. In my program I was introduced to theory and tools of data analytics, and my thesis project explored the potential of Apache Spark for analyzing astronomical data. I also have a degree in physics, and spent time studying engineering- I won't be content until I understand how everything works.&lt;/p&gt;
-&lt;p&gt;Outside of tech, I strive to spend every moment in nature or painting.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="profile" src="https://dl.dropboxusercontent.com/u/60129564/Website/profile150x170.jpg"&gt; &lt;strong&gt;Candice R Withrow, MS in Comp Sci&lt;/strong&gt;&lt;/img&gt;&lt;/p&gt;
+&lt;p&gt;I recently completed a masters in computer science and reside in Austin, TX. In my program I was introduced to theory and tools of data analytics, and my thesis project explored the potential of Apache Spark for analyzing astronomical data. I also have a degree in physics, and spent time studying engineering- I won't be content until I understand how everything works.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Basic experience with:&lt;/strong&gt; Apache Spark/Dataframes, 
                            Python w/ libraries (Scikit learn, Numpy)
                            SQL, Java&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Currently Studying:&lt;/strong&gt; Python, further Python libraries for data science, Github&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;p&gt;Outside of tech, I strive to spend every moment in nature or painting.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
