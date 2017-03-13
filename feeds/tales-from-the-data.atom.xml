@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>C. R. Withrow, Portfolio</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/tales-from-the-data.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2016-09-11T20:00:00-05:00</updated><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C. R. Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:analyzing-astro-data-in-spark.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>C. R. Withrow, Portfolio - Tales from the data</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/tales-from-the-data.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2016-09-11T20:00:00-05:00</updated><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C. R. Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:/analyzing-astro-data-in-spark.html</id><summary type="html">
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;The overall goal was to explore the potential of using Spark to process and analyze astronomical data.
+Specifically, the plan was to use PySpark to implement a modified Gaussian mixture model available 
+from &lt;a href="www.astroml.org"&gt;astroML&lt;/a&gt;, a library of Python based machine learning code from University of Washington,
+and use it to characterize photometric data from the &lt;a href="www.sdss.org"&gt;Sloan Digital Sky Survey&lt;/a&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -918,8 +927,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -930,9 +941,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
 &lt;style type="text/css"&gt;
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1021,7 +1034,18 @@ and use it to characterize photometric data from the &lt;a href="www.sdss.org"&g
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C. R. Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:astro-data-in-spark-gmm-models.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</content></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C. R. Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:/astro-data-in-spark-gmm-models.html</id><summary type="html">
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Gaussian-Mixture-Model"&gt;Gaussian Mixture Model&lt;a class="anchor-link" href="#Gaussian-Mixture-Model"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
+1) Spark ML GMM module (on RDD)
+2) Sci-kit learn basic GMM on (numpy aray)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data has been preprocessed in Spark as dataframes and converted to numpy arrays &lt;/li&gt;
+&lt;li&gt;Matplotlib is used to visualize&lt;/li&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1940,8 +1964,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1952,9 +1978,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
 &lt;style type="text/css"&gt;
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -2727,7 +2755,17 @@ oDBCKwAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary></entry><entry><title>Astronomical Data in Spark- PreProcessing</title><link href="http://cwithrow.github.io/astro-data-in-spark-preprocessing.html" rel="alternate"></link><published>2016-08-10T18:00:00-05:00</published><updated>2016-08-10T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-10:astro-data-in-spark-preprocessing.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</content></entry><entry><title>Astronomical Data in Spark- PreProcessing</title><link href="http://cwithrow.github.io/astro-data-in-spark-preprocessing.html" rel="alternate"></link><published>2016-08-10T18:00:00-05:00</published><updated>2016-08-10T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-10:/astro-data-in-spark-preprocessing.html</id><summary type="html">
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Data-Pre-processing"&gt;Data Pre-processing&lt;a class="anchor-link" href="#Data-Pre-processing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
+- the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
+- a plot of the color distributions for the catalog stars is generated at end
+&lt;/code&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3646,8 +3684,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -3658,9 +3698,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
 &lt;style type="text/css"&gt;
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -4519,7 +4561,7 @@ None
 &lt;span class="sd"&gt;        ax = MultiAxes(4)&lt;/span&gt;
 &lt;span class="sd"&gt;        ax.density(x, bins=[20, 20, 20, 20])&lt;/span&gt;
 &lt;span class="sd"&gt;    """&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ndim&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;inner_labels&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ndim&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;inner_labels&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                  &lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                  &lt;span class="n"&gt;left&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bottom&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                  &lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;top&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -6041,4 +6083,4 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="apache spark"></category></entry></feed>
+</content><category term="apache spark"></category></entry></feed>
