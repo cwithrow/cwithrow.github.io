@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/</loc>
-<lastmod>2017-03-13T16:15:49-00:00</lastmod>
+<lastmod>2017-03-17T11:39:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/archives.html</loc>
-<lastmod>2017-03-13T16:15:49-00:00</lastmod>
+<lastmod>2017-03-17T11:39:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tags.html</loc>
-<lastmod>2017-03-13T16:15:49-00:00</lastmod>
+<lastmod>2017-03-17T11:39:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/categories.html</loc>
-<lastmod>2017-03-13T16:15:49-00:00</lastmod>
+<lastmod>2017-03-17T11:39:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://cwithrow.github.io/pages/about me.html</loc>
 <lastmod>2017-02-01T20:00:00-06:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://cwithrow.github.io/spark-jupyter-aws.html</loc>
+<lastmod>2017-03-09T13:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -67,6 +74,34 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://cwithrow.github.io/category/tutorials.html</loc>
+<lastmod>2017-03-17T10:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://cwithrow.github.io/tag/windows.html</loc>
+<lastmod>2017-03-17T10:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://cwithrow.github.io/tag/spark.html</loc>
+<lastmod>2017-03-17T10:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://cwithrow.github.io/tag/aws.html</loc>
+<lastmod>2017-03-17T10:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://cwithrow.github.io/tag/apache-spark.html</loc>
 <lastmod>2016-08-10T18:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
@@ -82,7 +117,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/author/c-withrow.html</loc>
-<lastmod>2016-08-10T18:00:00-05:51</lastmod>
+<lastmod>2017-03-17T10:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
