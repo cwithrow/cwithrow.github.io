@@ -41,6 +41,9 @@
     <li><a href="/pages/about me.html">About me</a></li>
     <li><a href="/pdfs/Resume.pdf">Resume</a></li>
       <li >
+        <a href="./category/java.html">Java</a>
+      </li>
+      <li >
         <a href="./category/tales-from-the-data.html">Tales from the data</a>
       </li>
       <li class="active">
@@ -59,16 +62,18 @@
 
   <div class="entry-content"><p>The goal of this multi-part guide is to walk the reader through setting up distributed data analysis on a remote server (AWS) with Apache Spark, simply using Cygwin and Jupyter, in your browser. On windows! </p>
 <p>Why?
-Everybody's talking about Jupyter, some sort of "notebook" thing that let's you see your code and graphs in one neat little page. You should try that out. Oh, and Spark! Spark lets you analyze data fast and easily! "Ok!" You say. "I can do easy." But wait, what you really need to try is AWS, it's /the/ cloud to put your data on. But you're on Windows, you don't have a lot of time, and despite being fairly tech capable, after a few environment path changes it isn't quite working and you're frustrated. This tutorial is designed to hold your hand through the process so you (hopefully) don't have to google every step. </p>
+Everybody's talking about Jupyter, some sort of "notebook" thing that let's you see your code and graphs in one neat little page. You should try that out. Oh, and Spark! Spark lets you analyze data fast and easily! "Ok!" You say. "I can do easy." But wait, what you really need to try is AWS, it's /the/ cloud to put your data on. But you're on Windows, you don't have a lot of time, and despite being fairly tech capable, after a few environment path changes it isn't quite working and you're frustrated. This tutorial is designed to hold your hand through the process so you (hopefully) don't have to Google every step. </p>
 <p>Since there are different routes you can go from each step, I've decided to break it into parts. This one focuses on creating and connecting to an AWS instance. </p>
-<p>Summary of Steps:
-    - [x]Create AWS account and connect to the server
-    - [ ] Set up anaconda and Jupyter
-    - [ ] Add Spark and Pyspark settings
-    - [ ] Test it out!
-- </p>
+<p>*<em>Will replace low resolution images- there was a disconnect with an editor preview and actual publishing</em></p>
+<p>Summary of Steps:</p>
+<ul>
+<li>Create AWS account and connect to the server </li>
+<li>Set up Anaconda and Jupyter</li>
+<li>Add Spark and Pyspark settings</li>
+<li>Test it out!</li>
+</ul>
 <p>Voila!
-Click <a href="#connect-to-the-instance">here</a> to jump to quick instructions for accessing the instance after first time setup.</p>
+Click <a href="#connect-to-the-instance">here</a> to jump to quick instructions for accessing the instance after the first-time setup.</p>
 <p>Key software for this goal:
 1.  <a href="https://cygwin.com/install.html">Cygwin</a>, OpenSSH
 2.  <a href="http://aws.amazon.com/free">Amazon Web Services (AWS)</a></p>
@@ -80,8 +85,8 @@ First download Cygwin (https://cygwin.com/install.html) if you don't already hav
 <h3 id="create-security-settings">Create Security Settings</h3>
 <p><strong>Set up AWS account</strong>
 Then, head over to <a href="http://aws.amazon.com/free">Amazon Web Services</a> to create an account to use Amazon Web Services, an umbrella for many nifty services, the most popular being its Elastic Compute (generation 2) cloud. EC2 lets you remotely access a server that's maintained by amazon. Think of it as hardware as a service, so that if you happen to need a lot of servers for analyzing a large set of data this week, you don't have to purchase and set up the actual hardware yourself.  The term elastic is used because the resources you are billed for stretches or shrinks to fit the amount of resources (space, computing time) you actually used. The free tier lets you use 750 hours a month, with various limitations. Since they require a credit card, make sure you pay attention to which services you select in the following steps, and at sign up, opt for usage alerts via email.</p>
-<p><img alt="cube" src="https://dl.dropboxusercontent.com/u/60129564/gitsite/Images/cube_30x30.PNG" title="AWS Cube"> Navigating the AWS: After you set up an account, you can select services from the management console which you can generally access via the golden cube  on the upper left of the page. Settings and billing can be accessed on the upper right, where you'll also see the time zone of servers you have access to.  </p>
-<p><img alt="Image of AWS services in console" src="https://dl.dropboxusercontent.com/u/60129564/gitsite/Images/AWS-Console.PNG" title="AWS Console">
+<p><img alt="cube" src="https://www.dropbox.com/s/9h5eqpqtuiallnl/cube_30x30.png?raw=1" title="AWS Cube"> Navigating the AWS: After you set up an account, you can select services from the management console which you can generally access via the golden cube  on the upper left of the page. Settings and billing can be accessed on the upper right, where you'll also see the time zone of servers you have access to.  </p>
+<p><img alt="Image of AWS services in console" src="https://www.dropbox.com/s/lbxw9tr471cvstj/AWS-Console.PNG?raw=1" title="AWS Console">
 We will use the circled services, starting with EC2.</p>
 <p><strong>Keys</strong>
 Select EC2 from the services list, then on the left the "dashboard" should list <em>Key Pairs</em> under Network &amp; Security. Click <em>Create Key Pair</em> to and give it a relevant name for the project you'be creating this Linux instance for. Doing so creates a .pem file which is automatically downloaded- save this in a location easily accessed from command line. For more informations on creating keys, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair">User Guide</a>.
@@ -94,27 +99,30 @@ A Role can specify which services an instance is able to use, and is a good idea
     - On the left, select Roles and <em>Create New Role</em></p>
 <p><strong>Security Group</strong>
 Back to EC2, choose Security Group from the side dashboard and then <em>Create Security Group</em>. Give the group a name (same as group name) and description such as "For using Spark" then give it some rules like those displayed here: 
-<img alt="Image of security group rules" src="https://dl.dropboxusercontent.com/u/60129564/gitsite/Images/Security-Group.PNG" title="Inbound Rules">
+<img alt="Image of security group rules" src="https://www.dropbox.com/s/zsxjf9etev52vum/Security-Group.PNG?raw=1" title="Inbound Rules">
 When you add each rule you can select the type, protocol, port range and allowed source- if you want to be able to access from any IP leave it as 0, but if you know you'll mostly be using one IP you can select "My IP" (and edit the rules as needed). 
 Though these rules can also be set when you create an instance, having a saved group makes future instance creation easier.</p>
 <h2 id="start-instance">Start instance</h2>
 <p><strong>Create a Linux Instance</strong>
-Finally! Choose "instances" from the EC2 side panel, and select the <em>Launch Instance</em> button. After each configuration step, you can either launch with defaults or continue to next step to configure further- be sure to always select this option.
-Steps:
-    1) Here you can select which Amazon Machine image (operating system + application server + applications) best suits your needs. I chose the Linux system (firat choice), which includes Java, Python and AWS command line if you want to try using that.<br>
-    2) Next, pick a processor setup based on what is available with your account. For free this is t2.micro, which includes 1 processor and 1 GB of memory. Select Next to keep configuring.
-    3) If you made an IAM role above, you can select it here, about halfway down the settings- also select "Protect against accidental termination" to keep the instance from accidental deletion.
-    4) Keep storage default 5) Add any tags
-    6) Since you already created a security group previously, you simply have to choose it here from the dropdown menu.</p>
+Finally! Choose "instances" from the EC2 side panel, and select the <em>Launch Instance</em> button. After each configuration step, you can either launch with defaults or continue to next step to configure further- be sure to always select this option.</p>
+<p>Steps:</p>
+<ol>
+<li>Here you can select which Amazon Machine image (operating system + application server + applications) best suits your needs. I chose the Linux system (first choice), which includes Java, Python and AWS command line if you want to try using that.  </li>
+<li>Next, pick a processor setup based on what is available with your account. For free this is t2.micro, which includes 1 processor and 1 GB of memory. Select Next to keep configuring.</li>
+<li>If you made an IAM role above, you can select it here, about halfway down the settings- also select "Protect against accidental termination" to keep the instance from accidental deletion.</li>
+<li>Keep storage default </li>
+<li>Add any tags</li>
+<li>Since you created a security group previously, you simply have to choose it here from the dropdown menu.</li>
+</ol>
 <p>Now, hit the blue <em>Review and Launch</em> button and after confirming your settings, launch your instance. It may ask you if you want to create a new key pair or an existing one. Remember to save the .pem file in an easily accessed/short address location.</p>
 <h3 id="connect-to-the-instance">Connect to the Instance</h3>
 <p>Launching the instance simply turns it on on Amazon's side. We still need to connect to it from our side to use it. Interacting with the instance is done through command line. Many tutorials have you using Putty or other means to log in and access the instance but I found Cygwin's OpenSSH to be easy enough using the command offered by Amazon. 
 Every time you want to connect to the instance, login and select EC2 from the AWS console, then choose <em>Instances</em> from the left sidebar.
 You should see this on your screen:</p>
-<p><img alt="Image of instances" src="https://dl.dropboxusercontent.com/u/60129564/gitsite/Images/Instance.PNG" title="Instances">
+<p><img alt="Image of instances" src="https://www.dropbox.com/s/ykadn7iom05ppxk/Instance.PNG?raw=1" title="Instances">
 Information about the selected instance, including the public IP will be shown on bottom.
 Right click the instance you launched and click <em>Connect</em>. A window pops up like so:</p>
-<p><img alt="Image of instance connection window" src="https://dl.dropboxusercontent.com/u/60129564/gitsite/Images/Connect-instance.PNG" title="Connect to instance screen"></p>
+<p><img alt="Image of instance connection window" src="https://www.dropbox.com/s/30rum44yr9z39v7/Connect-instance.PNG?raw=1" title="Connect to instance screen"></p>
 <p>which tells you everything you need to connect. In Cygwin, navigate to the directory which contains your key (.pem) file from earlier and copy the example command provided.
     <strong>Tip:</strong> You can use cntrl+shift+insert to paste into Cywgin
 Example:</p>
@@ -139,7 +147,7 @@ Example:</p>
     <a class='category' href='./category/tutorials.html'>Tutorials</a>
   </span>
   <span class="categories">
-    <a class="category" href="./tag/spark.html">Spark</a>,    <a class="category" href="./tag/aws.html">AWS</a>,    <a class="category" href="./tag/windows.html">Windows</a>  </span>
+    <a class="category" href="./tag/apache-spark.html">Apache Spark</a>,    <a class="category" href="./tag/aws.html">AWS</a>,    <a class="category" href="./tag/windows.html">Windows</a>  </span>
 </p><div class="sharing">
 </div>    </footer>
   </article>
@@ -149,6 +157,9 @@ Example:</p>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="./preemptive-scheduler.html">Preemptive Scheduler</a>
+      </li>
       <li class="post">
           <a href="./spark-jupyter-aws.html">Spark, Jupyter, AWS? Oh my!</a>
       </li>
@@ -167,6 +178,7 @@ Example:</p>
       
     <h1>Categories</h1>
     <ul id="recent_posts">
+        <li><a href="./category/java.html">Java</a></li>
         <li><a href="./category/tales-from-the-data.html">Tales from the data</a></li>
         <li><a href="./category/tutorials.html">Tutorials</a></li>
     </ul>
@@ -175,13 +187,14 @@ Example:</p>
 
   <section>
   <h1>Tags</h1>
-    <a href="./tag/windows.html">Windows</a>,    <a href="./tag/spark.html">Spark</a>,    <a href="./tag/aws.html">AWS</a>,    <a href="./tag/apache-spark.html">apache spark</a>  </section>
+    <a href="./tag/windows.html">Windows</a>,    <a href="./tag/aws.html">AWS</a>,    <a href="./tag/apache-spark.html">Apache Spark</a>,    <a href="./tag/java.html">Java</a>  </section>
 
 
     <section>
         <h1>Social</h1>
         <ul>
             <li><a href="http://www.linkedin.com/in/candice-withrow" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/cwithrow/java" target="_blank">Github</a></li>
             <li><a href="mailto:candice.withrow@gmail.com" target="_blank">E-mail</a></li>
         </ul>
     </section>
