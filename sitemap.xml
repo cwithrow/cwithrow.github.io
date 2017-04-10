@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/</loc>
-<lastmod>2017-04-10T17:50:34-00:00</lastmod>
+<lastmod>2017-04-10T18:00:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/archives.html</loc>
-<lastmod>2017-04-10T17:50:34-00:00</lastmod>
+<lastmod>2017-04-10T18:00:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tags.html</loc>
-<lastmod>2017-04-10T17:50:34-00:00</lastmod>
+<lastmod>2017-04-10T18:00:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/categories.html</loc>
-<lastmod>2017-04-10T17:50:34-00:00</lastmod>
+<lastmod>2017-04-10T18:00:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,7 +40,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/file-paths.html</loc>
-<lastmod>2017-04-10T17:00:00-05:00</lastmod>
+<lastmod>2017-04-10T16:00:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -82,7 +82,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/category/blog.html</loc>
-<lastmod>2017-04-10T17:00:00-05:51</lastmod>
+<lastmod>2017-04-10T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -110,14 +110,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/tag/python.html</loc>
-<lastmod>2017-04-10T17:00:00-05:51</lastmod>
+<lastmod>2017-04-10T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tag/windows.html</loc>
-<lastmod>2017-04-10T17:00:00-05:51</lastmod>
+<lastmod>2017-04-10T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -152,7 +152,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/author/c-withrow.html</loc>
-<lastmod>2017-04-10T17:00:00-05:51</lastmod>
+<lastmod>2017-04-10T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
