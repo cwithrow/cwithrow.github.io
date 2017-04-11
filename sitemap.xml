@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/</loc>
-<lastmod>2017-04-11T08:44:06-00:00</lastmod>
+<lastmod>2017-04-11T09:06:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/archives.html</loc>
-<lastmod>2017-04-11T08:44:06-00:00</lastmod>
+<lastmod>2017-04-11T09:06:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tags.html</loc>
-<lastmod>2017-04-11T08:44:06-00:00</lastmod>
+<lastmod>2017-04-11T09:06:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/categories.html</loc>
-<lastmod>2017-04-11T08:44:06-00:00</lastmod>
+<lastmod>2017-04-11T09:06:23-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -95,7 +95,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://cwithrow.github.io/category/tales-from-the-data.html</loc>
+<loc>http://cwithrow.github.io/category/projects.html</loc>
 <lastmod>2016-09-11T20:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -139,13 +139,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://cwithrow.github.io/tag/java.html</loc>
 <lastmod>2017-03-27T18:00:00-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://cwithrow.github.io/author/c-r-withrow.html</loc>
-<lastmod>2016-09-11T20:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

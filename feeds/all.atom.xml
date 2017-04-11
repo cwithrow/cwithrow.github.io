@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>C. R. Withrow, Portfolio</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-04-10T16:00:00-05:00</updated><entry><title>Windows File Paths</title><link href="http://cwithrow.github.io/file-paths.html" rel="alternate"></link><published>2017-04-10T16:00:00-05:00</published><updated>2017-04-10T16:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-04-10:/file-paths.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tales From the Data</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-04-10T16:00:00-05:00</updated><entry><title>Windows File Paths</title><link href="http://cwithrow.github.io/file-paths.html" rel="alternate"></link><published>2017-04-10T16:00:00-05:00</published><updated>2017-04-10T16:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-04-10:/file-paths.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -2211,7 +2211,7 @@ Example:&lt;/p&gt;
 &lt;li&gt;Be sure to alter the file path to your key if needed.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Type 'yes' when it asks if you still want to connect, despite its inability to establish authenticity of the host.&lt;/p&gt;
-&lt;p&gt;You should now be connected! &lt;/p&gt;</content><category term="Apache Spark"></category><category term="AWS"></category><category term="Windows"></category></entry><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C. R. Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:/analyzing-astro-data-in-spark.html</id><summary type="html">
+&lt;p&gt;You should now be connected! &lt;/p&gt;</content><category term="Apache Spark"></category><category term="AWS"></category><category term="Windows"></category></entry><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:/analyzing-astro-data-in-spark.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
@@ -3237,7 +3237,7 @@ and use it to characterize photometric data from the &lt;a href="www.sdss.org"&g
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C. R. Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:/astro-data-in-spark-gmm-models.html</id><summary type="html">
+</content></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:/astro-data-in-spark-gmm-models.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
 &lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
