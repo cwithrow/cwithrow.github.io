@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tales From the Data - Projects</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/projects.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2016-09-11T20:00:00-05:00</updated><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:/analyzing-astro-data-in-spark.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Why?"&gt;Why?&lt;a class="anchor-link" href="#Why?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
-    In my initial research, I found that very little work had been done with Spark in astronomy research, and then found this delightful new Python library, &lt;a href="'http://www.astroml.org/'"&gt;astroML&lt;/a&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tales From the Data</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/projects.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2016-09-11T20:00:00-05:00</updated><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:analyzing-astro-data-in-spark.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -163,6 +156,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -183,11 +177,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -982,12 +971,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Why?"&gt;Why?&lt;a class="anchor-link" href="#Why?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
+&lt;h2 id="Why?"&gt;Why?&lt;a class="anchor-link" href="#Why?"&gt;Â¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
     In my initial research, I found that very little work had been done with Spark in astronomy research, and then found this delightful new Python library, &lt;a href="'http://www.astroml.org/'"&gt;astroML&lt;/a&gt;, and text on machine learning in astronomy, with many very clear examples on analyzing data from the Sloan Digital Sky Survey (SDSS):
 &lt;img alt="Statistics, Data Mining, and Machine Learning in Astronomy" src="https://www.dropbox.com/s/o2szmz6efsslqr7/ivesic_cover.jpg?raw=1" title="Statistics, Data Mining, and Machine Learning in Astronomy" /&gt;&lt;/p&gt;
 &lt;p&gt;With all the code available to download, it seemed like a straightforward plan- pick an algorithm from the many types of works introduced in the text that could benefit from Spark's style of distribution, get the data, implement in Spark. Because Spark supports Python and has its own machine learing library! In the end I was unable to achieve the algorithm I selected, which I would have realized sooner had I communicated more with my professor. Lesson learned.&lt;/p&gt;
@@ -998,6 +986,7 @@ and use it to characterize photometric data from the &lt;a href="www.sdss.org"&g
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1025,18 +1014,7 @@ and use it to characterize photometric data from the &lt;a href="www.sdss.org"&g
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:/astro-data-in-spark-gmm-models.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Gaussian-Mixture-Model"&gt;Gaussian Mixture Model&lt;a class="anchor-link" href="#Gaussian-Mixture-Model"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
-1) Spark ML GMM module (on RDD)
-2) Sci-kit learn basic GMM on (numpy aray)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Data has been preprocessed in Spark as dataframes and converted to numpy arrays &lt;/li&gt;
-&lt;li&gt;Matplotlib is used to visualize&lt;/li&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</summary></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:astro-data-in-spark-gmm-models.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1193,6 +1171,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -1213,11 +1192,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -2012,12 +1986,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Gaussian-Mixture-Model"&gt;Gaussian Mixture Model&lt;a class="anchor-link" href="#Gaussian-Mixture-Model"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
+&lt;h2 id="Gaussian-Mixture-Model"&gt;Gaussian Mixture Model&lt;a class="anchor-link" href="#Gaussian-Mixture-Model"&gt;Â¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
 1) Spark ML GMM module (on RDD)
 2) Sci-kit learn basic GMM on (numpy aray)&lt;/p&gt;
 &lt;ul&gt;
@@ -2050,8 +2023,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2105,8 +2077,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2138,8 +2109,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2161,7 +2131,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[array([ 18.3474  ,   2.57651 ,   1.4184  ,   0.634551,   0.408378]), array([ 19.8448  ,   1.24297 ,   0.5628  ,   0.244997,   0.059566]), array([ 15.3926  ,   2.24869 ,   1.0076  ,   0.361069,   0.174982]), array([ 15.8842  ,   1.87798 ,   0.6602  ,   0.193598,   0.082844]), array([  1.57286000e+01,   1.25874000e+00,   4.32600000e-01,
          1.85274000e-01,   1.49720000e-02])]
@@ -2201,7 +2172,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;'for i in range(3):\n    print ("weight = ", model.weights[i], "mu = ", model.gaussians[i].mu, \n           "sigma = ", model.gaussians[i].sigma.toArray())'&lt;/pre&gt;
 &lt;/div&gt;
@@ -2209,8 +2181,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2235,7 +2206,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;'for i in range(3):\n        print ("\n weight = ", clf.weights_[i], "\nmu = ", clf.means_, \n           "\nsigma = ", clf.covars_[i])'&lt;/pre&gt;
 &lt;/div&gt;
@@ -2294,7 +2266,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
 &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVEAAAD6CAYAAAAY2nTbAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXl0ZVd97/nZd551B0lX81Cq0S7bRZUhBjt2BRMSEggQ
@@ -2713,12 +2686,13 @@ CCEmoJOhRgjxs8Bf7bwfAP7+s82BmpTyP+++IaX8XAjxOvA92UnWq7jgKJvpPUpEzzcxOkklAO4A
 pJQyK4QIA/+6GweB4nKibKb3KBE9xwgh/j2dMgdXgT/sdlahuHwom+k9SkQVCoXiGKg9UYVCoTgG
 SkQVCoXiGCgRVSgUimOgRFShUCiOgRJRhUKhOAZKRBUKheIYKBFVKBSKY6BEVKFQKI7B/wezg7DI
 oDBCKwAAAABJRU5ErkJggg==
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
+" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -2746,17 +2720,7 @@ oDBCKwAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content></entry><entry><title>Astronomical Data in Spark- PreProcessing</title><link href="http://cwithrow.github.io/astro-data-in-spark-preprocessing.html" rel="alternate"></link><published>2016-08-10T18:00:00-05:00</published><updated>2016-08-10T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-10:/astro-data-in-spark-preprocessing.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Data-Pre-processing"&gt;Data Pre-processing&lt;a class="anchor-link" href="#Data-Pre-processing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
-- the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
-- a plot of the color distributions for the catalog stars is generated at end
-&lt;/code&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</summary></entry><entry><title>Astronomical Data in Spark- PreProcessing</title><link href="http://cwithrow.github.io/astro-data-in-spark-preprocessing.html" rel="alternate"></link><published>2016-08-10T18:00:00-05:00</published><updated>2016-08-10T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-10:astro-data-in-spark-preprocessing.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2913,6 +2877,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -2933,11 +2898,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -3732,12 +3692,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Data-Pre-processing"&gt;Data Pre-processing&lt;a class="anchor-link" href="#Data-Pre-processing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models&lt;/p&gt;
+&lt;h3 id="Data-Pre-processing"&gt;Data Pre-processing&lt;a class="anchor-link" href="#Data-Pre-processing"&gt;Â¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
 - the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
 - a plot of the color distributions for the catalog stars is generated at end
@@ -3778,8 +3737,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3925,8 +3883,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3956,7 +3913,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+--------+--------+----+-------+------+------+------+------+------+-----+-----+-----+-----+-----+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+----+--------+
 |      ra|     dec| run|rExtSFD|  uRaw|  gRaw|  rRaw|  iRaw|  zRaw| uErr| gErr| rErr| iErr| zErr|uRawPSF|gRawPSF|rRawPSF|iRawPSF|zRawPSF|upsfErr|gpsfErr|rpsfErr|ipsfErr|zpsfErr|type|ISOLATED|
@@ -3998,7 +3956,8 @@ Shape of df_noisy: 86290 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+-------+-------+-------+-------+-------+
 |upsfErr|gpsfErr|rpsfErr|ipsfErr|zpsfErr|
@@ -4042,7 +4001,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+--------+-------+-------+------------------+---------+
 | uRawPSF|gRawPSF|rRawPSF|           iRawPSF|  zRawPSF|
@@ -4059,8 +4019,7 @@ Shape of X: 86290 rows
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4088,7 +4047,8 @@ Shape of X: 86290 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Rows in standard RDD w/o header: 1006849 rows
 CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0.000  0.000   0.0   4 22.301 22.265  0.057  0.168   1.9   4 20.814 20.809  0.020  0.049   1.2   4 20.187 20.202  0.019  0.053   2.0   4 19.878 19.809  0.047  0.139   2.4 
@@ -4134,7 +4094,8 @@ CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Rows in standard dataframe w/o header: 1006849 rows
 +-----------+----------+-----+------+----+-----+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+
@@ -4170,7 +4131,8 @@ only showing top 2 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Rows in stdData: 40614 rows
 +--------+---------+-----+------+----+-----+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+
@@ -4252,7 +4214,8 @@ only showing top 2 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+------+------+------+------+------+--------+---+------------------+------------------+------------------+---------+---------+
 |msig_u|msig_g|msig_r|msig_i|msig_z|greatest| id|             mmu_u|             mmu_g|             mmu_r|    mmu_i|    mmu_z|
@@ -4303,7 +4266,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+------+
 |msig_u|
@@ -4323,8 +4287,7 @@ None
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4358,7 +4321,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[[  9.22300000e-03   7.42139000e-01]
  [  1.23250000e-02  -4.35370000e-01]
@@ -4402,7 +4366,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[             inf              inf              inf ...,              inf
               inf   4.38634244e-06]
@@ -4470,7 +4435,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;('size after crossmatch:', (12988, 5))
 &lt;/pre&gt;
@@ -4496,8 +4462,7 @@ None
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4794,7 +4759,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+------------------+------------------+-------------------+-------------------+
 |               u_g|               g_r|                r_i|                i_z|
@@ -4839,12 +4805,14 @@ only showing top 5 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[22]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[22]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;&lt;matplotlib.text.text at 0x7f79911ac5d0&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
 &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmUAAAKSCAYAAACTGKyGAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmQ3Pd53/n3091zAIObBAEQADG8RJqyREnRGSk2Zcex
@@ -6030,8 +5998,8 @@ djPbZWZXl9uITLOvAr+Q5fTFLO9BJyOyORmAu38m5PxjbQe1VWn4Ul7i7otm9ufAYeAkcLxim6+b
 2SHgKEURdww412igImO0hpzW/BrZjJTXHaIlMWTNzGyPu8+Z2SzwMPDr7n6k7bhE1ks5LSJdoJ4y
 WY+DZvYaiivV/kkHL9kElNMi0jr1lImIiIh0gCb6i4iIiHSAijIRERGRDlBRJiIiItIBKspERERE
 OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
+" /&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6047,6 +6015,7 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -6074,4 +6043,4 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="Apache Spark"></category></entry></feed>
+</summary><category term="Apache Spark"></category></entry></feed>

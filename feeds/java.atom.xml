@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tales From the Data - Java</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/java.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-03-27T18:00:00-05:00</updated><entry><title>Preemptive Scheduler</title><link href="http://cwithrow.github.io/preemptive-scheduler.html" rel="alternate"></link><published>2017-03-27T18:00:00-05:00</published><updated>2017-03-27T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-03-27:/preemptive-scheduler.html</id><summary type="html">
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tales From the Data</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/java.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-03-27T18:00:00-05:00</updated><entry><title>Preemptive Scheduler</title><link href="http://cwithrow.github.io/preemptive-scheduler.html" rel="alternate"></link><published>2017-03-27T18:00:00-05:00</published><updated>2017-03-27T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-03-27:preemptive-scheduler.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -158,6 +156,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -178,11 +177,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1002,8 +996,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1013,6 +1006,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1040,4 +1034,4 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="Java"></category></entry></feed>
+</summary><category term="Java"></category></entry></feed>

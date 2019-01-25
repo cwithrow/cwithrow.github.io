@@ -221,6 +221,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -241,11 +242,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1040,12 +1036,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Gaussian-Mixture-Model">Gaussian Mixture Model<a class="anchor-link" href="#Gaussian-Mixture-Model">¶</a></h2><p>This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
+<h2 id="Gaussian-Mixture-Model">Gaussian Mixture Model<a class="anchor-link" href="#Gaussian-Mixture-Model">Â¶</a></h2><p>This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
 1) Spark ML GMM module (on RDD)
 2) Sci-kit learn basic GMM on (numpy aray)</p>
 <ul>
@@ -1078,8 +1073,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1133,8 +1127,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1166,8 +1159,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1189,7 +1181,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[array([ 18.3474  ,   2.57651 ,   1.4184  ,   0.634551,   0.408378]), array([ 19.8448  ,   1.24297 ,   0.5628  ,   0.244997,   0.059566]), array([ 15.3926  ,   2.24869 ,   1.0076  ,   0.361069,   0.174982]), array([ 15.8842  ,   1.87798 ,   0.6602  ,   0.193598,   0.082844]), array([  1.57286000e+01,   1.25874000e+00,   4.32600000e-01,
          1.85274000e-01,   1.49720000e-02])]
@@ -1229,7 +1222,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>'for i in range(3):\n    print ("weight = ", model.weights[i], "mu = ", model.gaussians[i].mu, \n           "sigma = ", model.gaussians[i].sigma.toArray())'</pre>
 </div>
@@ -1237,8 +1231,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1263,7 +1256,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>'for i in range(3):\n        print ("\n weight = ", clf.weights_[i], "\nmu = ", clf.means_, \n           "\nsigma = ", clf.covars_[i])'</pre>
 </div>
@@ -1322,7 +1316,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVEAAAD6CAYAAAAY2nTbAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXl0ZVd97/nZd551B0lX81Cq0S7bRZUhBjt2BRMSEggQ
@@ -1741,12 +1736,13 @@ CCEmoJOhRgjxs8Bf7bwfAP7+s82BmpTyP+++IaX8XAjxOvA92UnWq7jgKJvpPUpEzzcxOkklAO4A
 pJQyK4QIA/+6GweB4nKibKb3KBE9xwgh/j2dMgdXgT/sdlahuHwom+k9SkQVCoXiGKg9UYVCoTgG
 SkQVCoXiGCgRVSgUimOgRFShUCiOgRJRhUKhOAZKRBUKheIYKBFVKBSKY6BEVKFQKI7B/wezg7DI
 oDBCKwAAAABJRU5ErkJggg==
-">
-</img></div>
+" />
 </div>
 </div>
 </div>
 </div>
+</div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';

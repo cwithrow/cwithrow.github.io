@@ -221,6 +221,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -241,11 +242,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1040,12 +1036,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-Pre-processing">Data Pre-processing<a class="anchor-link" href="#Data-Pre-processing">¶</a></h3><p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models</p>
+<h3 id="Data-Pre-processing">Data Pre-processing<a class="anchor-link" href="#Data-Pre-processing">Â¶</a></h3><p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models</p>
 <pre><code>- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
 - the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
 - a plot of the color distributions for the catalog stars is generated at end
@@ -1086,8 +1081,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1233,8 +1227,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1264,7 +1257,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>+--------+--------+----+-------+------+------+------+------+------+-----+-----+-----+-----+-----+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+----+--------+
 |      ra|     dec| run|rExtSFD|  uRaw|  gRaw|  rRaw|  iRaw|  zRaw| uErr| gErr| rErr| iErr| zErr|uRawPSF|gRawPSF|rRawPSF|iRawPSF|zRawPSF|upsfErr|gpsfErr|rpsfErr|ipsfErr|zpsfErr|type|ISOLATED|
@@ -1306,7 +1300,8 @@ Shape of df_noisy: 86290 rows
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>+-------+-------+-------+-------+-------+
 |upsfErr|gpsfErr|rpsfErr|ipsfErr|zpsfErr|
@@ -1350,7 +1345,8 @@ None
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>+--------+-------+-------+------------------+---------+
 | uRawPSF|gRawPSF|rRawPSF|           iRawPSF|  zRawPSF|
@@ -1367,8 +1363,7 @@ Shape of X: 86290 rows
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1396,7 +1391,8 @@ Shape of X: 86290 rows
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Rows in standard RDD w/o header: 1006849 rows
 CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0.000  0.000   0.0   4 22.301 22.265  0.057  0.168   1.9   4 20.814 20.809  0.020  0.049   1.2   4 20.187 20.202  0.019  0.053   2.0   4 19.878 19.809  0.047  0.139   2.4 
@@ -1442,7 +1438,8 @@ CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Rows in standard dataframe w/o header: 1006849 rows
 +-----------+----------+-----+------+----+-----+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+
@@ -1478,7 +1475,8 @@ only showing top 2 rows
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Rows in stdData: 40614 rows
 +--------+---------+-----+------+----+-----+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+
@@ -1560,7 +1558,8 @@ only showing top 2 rows
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>+------+------+------+------+------+--------+---+------------------+------------------+------------------+---------+---------+
 |msig_u|msig_g|msig_r|msig_i|msig_z|greatest| id|             mmu_u|             mmu_g|             mmu_r|    mmu_i|    mmu_z|
@@ -1611,7 +1610,8 @@ None
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>+------+
 |msig_u|
@@ -1631,8 +1631,7 @@ None
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1666,7 +1665,8 @@ None
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[[  9.22300000e-03   7.42139000e-01]
  [  1.23250000e-02  -4.35370000e-01]
@@ -1710,7 +1710,8 @@ None
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[             inf              inf              inf ...,              inf
               inf   4.38634244e-06]
@@ -1778,7 +1779,8 @@ None
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>('size after crossmatch:', (12988, 5))
 </pre>
@@ -1804,8 +1806,7 @@ None
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2102,7 +2103,8 @@ None
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>+------------------+------------------+-------------------+-------------------+
 |               u_g|               g_r|                r_i|                i_z|
@@ -2147,12 +2149,14 @@ only showing top 5 rows
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[22]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre><matplotlib.text.text at 0x7f79911ac5d0></pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmUAAAKSCAYAAACTGKyGAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmQ3Pd53/n3091zAIObBAEQADG8RJqyREnRGSk2Zcex
@@ -3338,8 +3342,8 @@ djPbZWZXl9uITLOvAr+Q5fTFLO9BJyOyORmAu38m5PxjbQe1VWn4Ul7i7otm9ufAYeAkcLxim6+b
 2SHgKEURdww412igImO0hpzW/BrZjJTXHaIlMWTNzGyPu8+Z2SzwMPDr7n6k7bhE1ks5LSJdoJ4y
 WY+DZvYaiivV/kkHL9kElNMi0jr1lImIiIh0gCb6i4iIiHSAijIRERGRDlBRJiIiItIBKspERERE
 OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -3355,6 +3359,7 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';

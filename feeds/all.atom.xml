@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Tales From the Data</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-04-10T16:00:00-05:00</updated><entry><title>Windows File Paths</title><link href="http://cwithrow.github.io/file-paths.html" rel="alternate"></link><published>2017-04-10T16:00:00-05:00</published><updated>2017-04-10T16:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-04-10:/file-paths.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Another day, another Windows quirk.
-Today I found an explanation and trick (read, proper way) to write a file path in Python (or probably any language).
-I am sure this has been the reason behind inconsistent "relative path" success many times in the past year or so of working with data.&lt;/p&gt;
-&lt;p&gt;The most recent head-against-wall experience:&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Tales From the Data</title><link href="http://cwithrow.github.io/" rel="alternate"></link><link href="http://cwithrow.github.io/feeds/all.atom.xml" rel="self"></link><id>http://cwithrow.github.io/</id><updated>2017-04-10T16:00:00-05:00</updated><entry><title>Windows File Paths</title><link href="http://cwithrow.github.io/file-paths.html" rel="alternate"></link><published>2017-04-10T16:00:00-05:00</published><updated>2017-04-10T16:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-04-10:file-paths.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -165,6 +156,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -185,11 +177,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -984,8 +971,7 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1009,8 +995,7 @@ I am sure this has been the reason behind inconsistent "relative path" success m
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1030,8 +1015,7 @@ I am sure this has been the reason behind inconsistent "relative path" success m
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1054,8 +1038,7 @@ actually found a solution. The fix is to simply use double backslashes \\ in all
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1068,6 +1051,7 @@ actually found a solution. The fix is to simply use double backslashes \\ in all
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1095,9 +1079,7 @@ actually found a solution. The fix is to simply use double backslashes \\ in all
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="python"></category><category term="windows"></category></entry><entry><title>Preemptive Scheduler</title><link href="http://cwithrow.github.io/preemptive-scheduler.html" rel="alternate"></link><published>2017-03-27T18:00:00-05:00</published><updated>2017-03-27T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-03-27:/preemptive-scheduler.html</id><summary type="html">
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="windows"></category></entry><entry><title>Preemptive Scheduler</title><link href="http://cwithrow.github.io/preemptive-scheduler.html" rel="alternate"></link><published>2017-03-27T18:00:00-05:00</published><updated>2017-03-27T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-03-27:preemptive-scheduler.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1254,6 +1236,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -1274,11 +1257,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -2098,8 +2076,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2109,6 +2086,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -2136,7 +2114,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="Java"></category></entry><entry><title>Spark, Jupyter, AWS? Oh my!</title><link href="http://cwithrow.github.io/spark-jupyter-aws.html" rel="alternate"></link><published>2017-03-17T10:00:00-05:00</published><updated>2017-03-09T13:00:00-06:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-03-17:/spark-jupyter-aws.html</id><summary type="html">&lt;p&gt;First part of guide to running a cluster on AWS with Spark through Jupyter&lt;/p&gt;</summary><content type="html">&lt;p&gt;The goal of this multi-part guide is to walk the reader through setting up distributed data analysis on a remote server (AWS) with Apache Spark, simply using Cygwin and Jupyter, in your browser. On windows! &lt;/p&gt;
+</summary><category term="Java"></category></entry><entry><title>Spark, Jupyter, AWS? Oh my!</title><link href="http://cwithrow.github.io/spark-jupyter-aws.html" rel="alternate"></link><published>2017-03-09T13:00:00-06:00</published><updated>2017-03-09T13:00:00-06:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2017-03-17:spark-jupyter-aws.html</id><summary type="html">&lt;p&gt;The goal of this multi-part guide is to walk the reader through setting up distributed data analysis on a remote server (AWS) with Apache Spark, simply using Cygwin and Jupyter, in your browser. On windows! &lt;/p&gt;
 &lt;p&gt;Why?
 Everybody's talking about Jupyter, some sort of "notebook" thing that let's you see your code and graphs in one neat little page. You should try that out. Oh, and Spark! Spark lets you analyze data fast and easily! "Ok!" You say. "I can do easy." But wait, what you really need to try is AWS, it's /the/ cloud to put your data on. But you're on Windows, you don't have a lot of time, and despite being fairly tech capable, after a few environment path changes it isn't quite working and you're frustrated. This tutorial is designed to hold your hand through the process so you (hopefully) don't have to Google every step. &lt;/p&gt;
 &lt;p&gt;Since there are different routes you can go from each step, I've decided to break it into parts. This one focuses on creating and connecting to an AWS instance. &lt;/p&gt;
@@ -2155,14 +2133,14 @@ Click &lt;a href="#connect-to-the-instance"&gt;here&lt;/a&gt; to jump to quick i
 2.  &lt;a href="http://aws.amazon.com/free"&gt;Amazon Web Services (AWS)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Other resources:
 This site gives a &lt;em&gt;very&lt;/em&gt; informative overview of getting set up on EC2 https://sparkour.urizone.net/recipes/installing-ec2/. &lt;/p&gt;
-&lt;h2 id="initial-setup"&gt;Initial setup&lt;/h2&gt;
+&lt;h2&gt;Initial setup&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Install Cygwin&lt;/strong&gt; 
 First download Cygwin (https://cygwin.com/install.html) if you don't already have it. Cygwin is a simple linux emulator for windows- it isn't necessary for using AWS and Spark, but it's handy and has an easy secure shell, OpenSSH for connecting to your AWS instance. Since OpenSSH is not installed by default, use the search box to search for it in the packages and deselect "skip". If you've previously installed Cygwin just open the installer to add OpenSSH.&lt;/p&gt;
-&lt;h3 id="create-security-settings"&gt;Create Security Settings&lt;/h3&gt;
+&lt;h3&gt;Create Security Settings&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Set up AWS account&lt;/strong&gt;
 Then, head over to &lt;a href="http://aws.amazon.com/free"&gt;Amazon Web Services&lt;/a&gt; to create an account to use Amazon Web Services, an umbrella for many nifty services, the most popular being its Elastic Compute (generation 2) cloud. EC2 lets you remotely access a server that's maintained by amazon. Think of it as hardware as a service, so that if you happen to need a lot of servers for analyzing a large set of data this week, you don't have to purchase and set up the actual hardware yourself.  The term elastic is used because the resources you are billed for stretches or shrinks to fit the amount of resources (space, computing time) you actually used. The free tier lets you use 750 hours a month, with various limitations. Since they require a credit card, make sure you pay attention to which services you select in the following steps, and at sign up, opt for usage alerts via email.&lt;/p&gt;
-&lt;p&gt;&lt;img alt="cube" src="https://www.dropbox.com/s/9h5eqpqtuiallnl/cube_30x30.png?raw=1" title="AWS Cube"&gt; Navigating the AWS: After you set up an account, you can select services from the management console which you can generally access via the golden cube  on the upper left of the page. Settings and billing can be accessed on the upper right, where you'll also see the time zone of servers you have access to.  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of AWS services in console" src="https://www.dropbox.com/s/lbxw9tr471cvstj/AWS-Console.PNG?raw=1" title="AWS Console"&gt;
+&lt;p&gt;&lt;img alt="cube" src="https://www.dropbox.com/s/9h5eqpqtuiallnl/cube_30x30.png?raw=1" title="AWS Cube" /&gt; Navigating the AWS: After you set up an account, you can select services from the management console which you can generally access via the golden cube  on the upper left of the page. Settings and billing can be accessed on the upper right, where you'll also see the time zone of servers you have access to.  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of AWS services in console" src="https://www.dropbox.com/s/lbxw9tr471cvstj/AWS-Console.PNG?raw=1" title="AWS Console" /&gt;
 We will use the circled services, starting with EC2.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Keys&lt;/strong&gt;
 Select EC2 from the services list, then on the left the "dashboard" should list &lt;em&gt;Key Pairs&lt;/em&gt; under Network &amp;amp; Security. Click &lt;em&gt;Create Key Pair&lt;/em&gt; to and give it a relevant name for the project you'be creating this Linux instance for. Doing so creates a .pem file which is automatically downloaded- save this in a location easily accessed from command line. For more informations on creating keys, see the &lt;a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair"&gt;User Guide&lt;/a&gt;.
@@ -2175,10 +2153,10 @@ A Role can specify which services an instance is able to use, and is a good idea
     - On the left, select Roles and &lt;em&gt;Create New Role&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Security Group&lt;/strong&gt;
 Back to EC2, choose Security Group from the side dashboard and then &lt;em&gt;Create Security Group&lt;/em&gt;. Give the group a name (same as group name) and description such as "For using Spark" then give it some rules like those displayed here: 
-&lt;img alt="Image of security group rules" src="https://www.dropbox.com/s/zsxjf9etev52vum/Security-Group.PNG?raw=1" title="Inbound Rules"&gt;
+&lt;img alt="Image of security group rules" src="https://www.dropbox.com/s/zsxjf9etev52vum/Security-Group.PNG?raw=1" title="Inbound Rules" /&gt;
 When you add each rule you can select the type, protocol, port range and allowed source- if you want to be able to access from any IP leave it as 0, but if you know you'll mostly be using one IP you can select "My IP" (and edit the rules as needed). 
 Though these rules can also be set when you create an instance, having a saved group makes future instance creation easier.&lt;/p&gt;
-&lt;h2 id="start-instance"&gt;Start instance&lt;/h2&gt;
+&lt;h2&gt;Start instance&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Create a Linux Instance&lt;/strong&gt;
 Finally! Choose "instances" from the EC2 side panel, and select the &lt;em&gt;Launch Instance&lt;/em&gt; button. After each configuration step, you can either launch with defaults or continue to next step to configure further- be sure to always select this option.&lt;/p&gt;
 &lt;p&gt;Steps:&lt;/p&gt;
@@ -2191,14 +2169,14 @@ Finally! Choose "instances" from the EC2 side panel, and select the &lt;em&gt;La
 &lt;li&gt;Since you created a security group previously, you simply have to choose it here from the dropdown menu.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Now, hit the blue &lt;em&gt;Review and Launch&lt;/em&gt; button and after confirming your settings, launch your instance. It may ask you if you want to create a new key pair or an existing one. Remember to save the .pem file in an easily accessed/short address location.&lt;/p&gt;
-&lt;h3 id="connect-to-the-instance"&gt;Connect to the Instance&lt;/h3&gt;
+&lt;h3&gt;Connect to the Instance&lt;/h3&gt;
 &lt;p&gt;Launching the instance simply turns it on on Amazon's side. We still need to connect to it from our side to use it. Interacting with the instance is done through command line. Many tutorials have you using Putty or other means to log in and access the instance but I found Cygwin's OpenSSH to be easy enough using the command offered by Amazon. 
 Every time you want to connect to the instance, login and select EC2 from the AWS console, then choose &lt;em&gt;Instances&lt;/em&gt; from the left sidebar.
 You should see this on your screen:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of instances" src="https://www.dropbox.com/s/ykadn7iom05ppxk/Instance.PNG?raw=1" title="Instances"&gt;
+&lt;p&gt;&lt;img alt="Image of instances" src="https://www.dropbox.com/s/ykadn7iom05ppxk/Instance.PNG?raw=1" title="Instances" /&gt;
 Information about the selected instance, including the public IP will be shown on bottom.
 Right click the instance you launched and click &lt;em&gt;Connect&lt;/em&gt;. A window pops up like so:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image of instance connection window" src="https://www.dropbox.com/s/30rum44yr9z39v7/Connect-instance.PNG?raw=1" title="Connect to instance screen"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image of instance connection window" src="https://www.dropbox.com/s/30rum44yr9z39v7/Connect-instance.PNG?raw=1" title="Connect to instance screen" /&gt;&lt;/p&gt;
 &lt;p&gt;which tells you everything you need to connect. In Cygwin, navigate to the directory which contains your key (.pem) file from earlier and copy the example command provided.
     &lt;strong&gt;Tip:&lt;/strong&gt; You can use cntrl+shift+insert to paste into Cywgin
 Example:&lt;/p&gt;
@@ -2211,14 +2189,7 @@ Example:&lt;/p&gt;
 &lt;li&gt;Be sure to alter the file path to your key if needed.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Type 'yes' when it asks if you still want to connect, despite its inability to establish authenticity of the host.&lt;/p&gt;
-&lt;p&gt;You should now be connected! &lt;/p&gt;</content><category term="Apache Spark"></category><category term="AWS"></category><category term="Windows"></category></entry><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:/analyzing-astro-data-in-spark.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Why?"&gt;Why?&lt;a class="anchor-link" href="#Why?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
-    In my initial research, I found that very little work had been done with Spark in astronomy research, and then found this delightful new Python library, &lt;a href="'http://www.astroml.org/'"&gt;astroML&lt;/a&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;You should now be connected! &lt;/p&gt;</summary><category term="Apache Spark"></category><category term="AWS"></category><category term="Windows"></category></entry><entry><title>Analyzing Astronomical Data in Apache Spark- Discussion</title><link href="http://cwithrow.github.io/analyzing-astro-data-in-spark.html" rel="alternate"></link><published>2016-09-11T20:00:00-05:00</published><updated>2016-09-11T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-09-11:analyzing-astro-data-in-spark.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2375,6 +2346,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -2395,11 +2367,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -3194,12 +3161,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Why?"&gt;Why?&lt;a class="anchor-link" href="#Why?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
+&lt;h2 id="Why?"&gt;Why?&lt;a class="anchor-link" href="#Why?"&gt;Â¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
     In my initial research, I found that very little work had been done with Spark in astronomy research, and then found this delightful new Python library, &lt;a href="'http://www.astroml.org/'"&gt;astroML&lt;/a&gt;, and text on machine learning in astronomy, with many very clear examples on analyzing data from the Sloan Digital Sky Survey (SDSS):
 &lt;img alt="Statistics, Data Mining, and Machine Learning in Astronomy" src="https://www.dropbox.com/s/o2szmz6efsslqr7/ivesic_cover.jpg?raw=1" title="Statistics, Data Mining, and Machine Learning in Astronomy" /&gt;&lt;/p&gt;
 &lt;p&gt;With all the code available to download, it seemed like a straightforward plan- pick an algorithm from the many types of works introduced in the text that could benefit from Spark's style of distribution, get the data, implement in Spark. Because Spark supports Python and has its own machine learing library! In the end I was unable to achieve the algorithm I selected, which I would have realized sooner had I communicated more with my professor. Lesson learned.&lt;/p&gt;
@@ -3210,6 +3176,7 @@ and use it to characterize photometric data from the &lt;a href="www.sdss.org"&g
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -3237,18 +3204,7 @@ and use it to characterize photometric data from the &lt;a href="www.sdss.org"&g
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:/astro-data-in-spark-gmm-models.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Gaussian-Mixture-Model"&gt;Gaussian Mixture Model&lt;a class="anchor-link" href="#Gaussian-Mixture-Model"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
-1) Spark ML GMM module (on RDD)
-2) Sci-kit learn basic GMM on (numpy aray)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Data has been preprocessed in Spark as dataframes and converted to numpy arrays &lt;/li&gt;
-&lt;li&gt;Matplotlib is used to visualize&lt;/li&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</summary></entry><entry><title>Astronomical Data in Spark: GMM Models From Prepared Data</title><link href="http://cwithrow.github.io/astro-data-in-spark-gmm-models.html" rel="alternate"></link><published>2016-08-15T20:00:00-05:00</published><updated>2016-08-15T20:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-15:astro-data-in-spark-gmm-models.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3405,6 +3361,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -3425,11 +3382,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -4224,12 +4176,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Gaussian-Mixture-Model"&gt;Gaussian Mixture Model&lt;a class="anchor-link" href="#Gaussian-Mixture-Model"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
+&lt;h2 id="Gaussian-Mixture-Model"&gt;Gaussian Mixture Model&lt;a class="anchor-link" href="#Gaussian-Mixture-Model"&gt;Â¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
 1) Spark ML GMM module (on RDD)
 2) Sci-kit learn basic GMM on (numpy aray)&lt;/p&gt;
 &lt;ul&gt;
@@ -4262,8 +4213,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4317,8 +4267,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4350,8 +4299,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4373,7 +4321,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[array([ 18.3474  ,   2.57651 ,   1.4184  ,   0.634551,   0.408378]), array([ 19.8448  ,   1.24297 ,   0.5628  ,   0.244997,   0.059566]), array([ 15.3926  ,   2.24869 ,   1.0076  ,   0.361069,   0.174982]), array([ 15.8842  ,   1.87798 ,   0.6602  ,   0.193598,   0.082844]), array([  1.57286000e+01,   1.25874000e+00,   4.32600000e-01,
          1.85274000e-01,   1.49720000e-02])]
@@ -4413,7 +4362,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;'for i in range(3):\n    print ("weight = ", model.weights[i], "mu = ", model.gaussians[i].mu, \n           "sigma = ", model.gaussians[i].sigma.toArray())'&lt;/pre&gt;
 &lt;/div&gt;
@@ -4421,8 +4371,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4447,7 +4396,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;'for i in range(3):\n        print ("\n weight = ", clf.weights_[i], "\nmu = ", clf.means_, \n           "\nsigma = ", clf.covars_[i])'&lt;/pre&gt;
 &lt;/div&gt;
@@ -4506,7 +4456,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
 &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVEAAAD6CAYAAAAY2nTbAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXl0ZVd97/nZd551B0lX81Cq0S7bRZUhBjt2BRMSEggQ
@@ -4925,12 +4876,13 @@ CCEmoJOhRgjxs8Bf7bwfAP7+s82BmpTyP+++IaX8XAjxOvA92UnWq7jgKJvpPUpEzzcxOkklAO4A
 pJQyK4QIA/+6GweB4nKibKb3KBE9xwgh/j2dMgdXgT/sdlahuHwom+k9SkQVCoXiGKg9UYVCoTgG
 SkQVCoXiGCgRVSgUimOgRFShUCiOgRJRhUKhOAZKRBUKheIYKBFVKBSKY6BEVKFQKI7B/wezg7DI
 oDBCKwAAAABJRU5ErkJggg==
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
+" /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -4958,17 +4910,7 @@ oDBCKwAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content></entry><entry><title>Astronomical Data in Spark- PreProcessing</title><link href="http://cwithrow.github.io/astro-data-in-spark-preprocessing.html" rel="alternate"></link><published>2016-08-10T18:00:00-05:00</published><updated>2016-08-10T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-10:/astro-data-in-spark-preprocessing.html</id><summary type="html">
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Data-Pre-processing"&gt;Data Pre-processing&lt;a class="anchor-link" href="#Data-Pre-processing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
-- the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
-- a plot of the color distributions for the catalog stars is generated at end
-&lt;/code&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+</summary></entry><entry><title>Astronomical Data in Spark- PreProcessing</title><link href="http://cwithrow.github.io/astro-data-in-spark-preprocessing.html" rel="alternate"></link><published>2016-08-10T18:00:00-05:00</published><updated>2016-08-10T18:00:00-05:00</updated><author><name>C Withrow</name></author><id>tag:cwithrow.github.io,2016-08-10:astro-data-in-spark-preprocessing.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5125,6 +5067,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -5145,11 +5088,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -5944,12 +5882,11 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Data-Pre-processing"&gt;Data Pre-processing&lt;a class="anchor-link" href="#Data-Pre-processing"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models&lt;/p&gt;
+&lt;h3 id="Data-Pre-processing"&gt;Data Pre-processing&lt;a class="anchor-link" href="#Data-Pre-processing"&gt;Â¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
 - the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
 - a plot of the color distributions for the catalog stars is generated at end
@@ -5990,8 +5927,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -6137,8 +6073,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -6168,7 +6103,8 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+--------+--------+----+-------+------+------+------+------+------+-----+-----+-----+-----+-----+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+----+--------+
 |      ra|     dec| run|rExtSFD|  uRaw|  gRaw|  rRaw|  iRaw|  zRaw| uErr| gErr| rErr| iErr| zErr|uRawPSF|gRawPSF|rRawPSF|iRawPSF|zRawPSF|upsfErr|gpsfErr|rpsfErr|ipsfErr|zpsfErr|type|ISOLATED|
@@ -6210,7 +6146,8 @@ Shape of df_noisy: 86290 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+-------+-------+-------+-------+-------+
 |upsfErr|gpsfErr|rpsfErr|ipsfErr|zpsfErr|
@@ -6254,7 +6191,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+--------+-------+-------+------------------+---------+
 | uRawPSF|gRawPSF|rRawPSF|           iRawPSF|  zRawPSF|
@@ -6271,8 +6209,7 @@ Shape of X: 86290 rows
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -6300,7 +6237,8 @@ Shape of X: 86290 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Rows in standard RDD w/o header: 1006849 rows
 CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0.000  0.000   0.0   4 22.301 22.265  0.057  0.168   1.9   4 20.814 20.809  0.020  0.049   1.2   4 20.187 20.202  0.019  0.053   2.0   4 19.878 19.809  0.047  0.139   2.4 
@@ -6346,7 +6284,8 @@ CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Rows in standard dataframe w/o header: 1006849 rows
 +-----------+----------+-----+------+----+-----+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+
@@ -6382,7 +6321,8 @@ only showing top 2 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Rows in stdData: 40614 rows
 +--------+---------+-----+------+----+-----+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+------+------+------+------+------+-------+
@@ -6464,7 +6404,8 @@ only showing top 2 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+------+------+------+------+------+--------+---+------------------+------------------+------------------+---------+---------+
 |msig_u|msig_g|msig_r|msig_i|msig_z|greatest| id|             mmu_u|             mmu_g|             mmu_r|    mmu_i|    mmu_z|
@@ -6515,7 +6456,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+------+
 |msig_u|
@@ -6535,8 +6477,7 @@ None
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -6570,7 +6511,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[[  9.22300000e-03   7.42139000e-01]
  [  1.23250000e-02  -4.35370000e-01]
@@ -6614,7 +6556,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[             inf              inf              inf ...,              inf
               inf   4.38634244e-06]
@@ -6682,7 +6625,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;('size after crossmatch:', (12988, 5))
 &lt;/pre&gt;
@@ -6708,8 +6652,7 @@ None
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -7006,7 +6949,8 @@ None
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+------------------+------------------+-------------------+-------------------+
 |               u_g|               g_r|                r_i|                i_z|
@@ -7051,12 +6995,14 @@ only showing top 5 rows
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[22]:&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt output_prompt"&gt;Out[22]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;&lt;matplotlib.text.text at 0x7f79911ac5d0&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_png output_subarea "&gt;
 &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmUAAAKSCAYAAACTGKyGAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmQ3Pd53/n3091zAIObBAEQADG8RJqyREnRGSk2Zcex
@@ -8242,8 +8188,8 @@ djPbZWZXl9uITLOvAr+Q5fTFLO9BJyOyORmAu38m5PxjbQe1VWn4Ul7i7otm9ufAYeAkcLxim6+b
 2SHgKEURdww412igImO0hpzW/BrZjJTXHaIlMWTNzGyPu8+Z2SzwMPDr7n6k7bhE1ks5LSJdoJ4y
 WY+DZvYaiivV/kkHL9kElNMi0jr1lImIiIh0gCb6i4iIiHSAijIRERGRDlBRJiIiItIBKspERERE
 OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
+" /&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8259,6 +8205,7 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -8286,4 +8233,4 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="Apache Spark"></category></entry></feed>
+</summary><category term="Apache Spark"></category></entry></feed>
