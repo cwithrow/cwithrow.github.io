@@ -7,7 +7,7 @@
 Slug:  working-facebook-api<br>
 Date: 2019-01-28 10:00<br>
 Modified:  2019-01-28 10:00<br>
-Tags: Facebook API, data extraction, project, text analytics, sulfites<br>
+Tags: project, blog, text analytics, sulfites<br>
 Author: C Withrow<br>
 Summary: Overview of goals in new project to analyze discussion data from a sulfite allergy support group</p>
 <h2 id="sulfite-allergies">Sulfite Allergies</h2>
