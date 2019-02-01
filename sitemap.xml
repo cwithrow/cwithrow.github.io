@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/</loc>
-<lastmod>2019-02-01T11:29:47-00:00</lastmod>
+<lastmod>2019-02-01T14:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/archives.html</loc>
-<lastmod>2019-02-01T11:29:47-00:00</lastmod>
+<lastmod>2019-02-01T14:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tags.html</loc>
-<lastmod>2019-02-01T11:29:47-00:00</lastmod>
+<lastmod>2019-02-01T14:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/categories.html</loc>
-<lastmod>2019-02-01T11:29:47-00:00</lastmod>
+<lastmod>2019-02-01T14:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -60,7 +60,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://cwithrow.github.io/preemptive-scheduler.html</loc>
+<loc>http://cwithrow.github.io/series-unfortunate-code.html</loc>
 <lastmod>2017-03-27T18:00:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -68,7 +68,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/spark-jupyter-aws.html</loc>
-<lastmod>2017-03-09T13:00:00-06:00</lastmod>
+<lastmod>2017-03-17T13:00:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -102,13 +102,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://cwithrow.github.io/category/java.html</loc>
-<lastmod>2017-03-27T18:00:00-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://cwithrow.github.io/category/projects.html</loc>
 <lastmod>2016-09-11T20:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
@@ -117,7 +110,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/category/tutorials.html</loc>
-<lastmod>2017-03-17T10:00:00-05:51</lastmod>
+<lastmod>2017-03-17T13:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -131,7 +124,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/tag/apache-spark.html</loc>
-<lastmod>2017-03-17T10:00:00-05:51</lastmod>
+<lastmod>2017-03-17T13:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -152,7 +145,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/tag/aws.html</loc>
-<lastmod>2017-03-17T10:00:00-05:51</lastmod>
+<lastmod>2017-03-17T13:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
