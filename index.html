@@ -154,7 +154,8 @@ I am sure this has been the reason behind inconsistent "relative path" success m
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why?">Why?<a class="anchor-link" href="#Why?">Â¶</a></h2><p>After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
+<p><strong>Why?</strong>
+After a seminar style course on data science, my professor invited us to do our MS project (a non-verbose thesis) using Apache Spark, a new and popular engine for distributed computing. Since my previous degree was in physics, he suggested I look there for data. Having some background in astronomy, I knew there was plenty of free, accessible data available there, and turned my nose in that direction. 
     In my initial research, I found that very little work had been done with Spark in astronomy research, and then found this delightful new Python library, <a href="'http://www.astroml.org/'">astroML</a></div>
   <footer>
     <a rel="full-article" href="./analyzing-astro-data-in-spark.html">Read On &crarr;</a>
@@ -174,12 +175,12 @@ I am sure this has been the reason behind inconsistent "relative path" success m
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Gaussian-Mixture-Model">Gaussian Mixture Model<a class="anchor-link" href="#Gaussian-Mixture-Model">Â¶</a></h2><p>This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
+<p><strong> Gaussian Mixture Model </strong></p>
+<p>This notebook performs 2 forms of Gaussian Mixture models algorithms to find clusters in flux space on stellar data 
 1) Spark ML GMM module (on RDD)
 2) Sci-kit learn basic GMM on (numpy aray)</p>
 <ul>
-<li>Data has been preprocessed in Spark as dataframes and converted to numpy arrays </li>
-<li>Matplotlib is used to visualize</li></div>
+<li>Data has been preprocessed in Spark as dataframes and converted to numpy arrays </li></div>
   <footer>
     <a rel="full-article" href="./astro-data-in-spark-gmm-models.html">Read On &crarr;</a>
   </footer>
@@ -198,7 +199,8 @@ I am sure this has been the reason behind inconsistent "relative path" success m
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-Pre-processing">Data Pre-processing<a class="anchor-link" href="#Data-Pre-processing">Â¶</a></h3><p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models</p>
+<p><strong> Data Pre-processing </strong></p>
+<p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models</p>
 <pre><code>- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
 - the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
 - a plot of the color distributions for the catalog stars is generated at end

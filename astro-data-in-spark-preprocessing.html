@@ -1037,7 +1037,8 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-Pre-processing">Data Pre-processing<a class="anchor-link" href="#Data-Pre-processing">Â¶</a></h3><p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models</p>
+<p><strong> Data Pre-processing </strong></p>
+<p>This notebook takes raw photometric (energy amounts at different wavelengths of the visible spectrum) from stellar objects and prepares it for analysis in different Gaussian mixture clustering models</p>
 <pre><code>- raw data is crossmatched for common objects with data from a catalog of standard (non-variable), stacked stars
 - the data is handled in Spark dataframes, then converted to numpy arrays and saved for analysis in GMM_plots notebook
 - a plot of the color distributions for the catalog stars is generated at end
@@ -1059,14 +1060,14 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="c1"># to load data as dataframes</span>
-<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SQLContext</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">SQLContext</span>
 <span class="n">sqlContext</span> <span class="o">=</span> <span class="n">SQLContext</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">fn</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">fn</span>
 
 <span class="n">path</span> <span class="o">=</span> <span class="s2">"data/"</span>
 <span class="c1">#in IBM workbook </span>
@@ -1091,7 +1092,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># converts estimated size to common units</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># converts estimated size to common units</span>
 <span class="k">def</span> <span class="nf">sizeconv</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">'B'</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">''</span><span class="p">,</span><span class="s1">'K'</span><span class="p">,</span><span class="s1">'M'</span><span class="p">,</span><span class="s1">'G'</span><span class="p">,</span><span class="s1">'T'</span><span class="p">,</span><span class="s1">'P'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'Z'</span><span class="p">]:</span>
         <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o"><</span> <span class="mf">1024.0</span><span class="p">:</span>
@@ -1108,7 +1109,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Methods to convert a Dataframe to a local numpy ndarray, </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Methods to convert a Dataframe to a local numpy ndarray, </span>
 <span class="c1"># from portion of spark_sklearn (https://github.com/databricks/spark-sklearn)</span>
 <span class="c1"># only intended for small files</span>
 
@@ -1118,7 +1119,7 @@ h6:hover .anchor-link {
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
   <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
-  <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">long</span><span class="p">:</span>
+  <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">long</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
   <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">is</span> <span class="n">DenseVector</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">toArray</span><span class="p">(),</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">toArray</span><span class="p">())))</span>
@@ -1178,9 +1179,9 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># From astroML library, for matching common objects between the raw data and the standard star catalog</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># From astroML library, for matching common objects between the raw data and the standard star catalog</span>
 <span class="c1"># Original at astroML: http://astroML.github.com</span>
-<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">cKDTree</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="k">import</span> <span class="n">cKDTree</span>
 
 <span class="k">def</span> <span class="nf">crossmatch</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">max_distance</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">):</span>
     <span class="sd">"""Cross-match the values between X1 and X2</span>
@@ -1237,16 +1238,16 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load DR7 data as csv into a dataframe</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load DR7 data as csv into a dataframe</span>
 
-<span class="n">df_noisy</span>  <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">noisypath</span><span class="p">,</span> <span class="n">format</span> <span class="o">=</span> <span class="s2">"com.databricks.spark.csv"</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="s2">"true"</span><span class="p">,</span> <span class="n">inferSchema</span> <span class="o">=</span> <span class="s2">"true"</span><span class="p">)</span>
+<span class="n">df_noisy</span>  <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">noisypath</span><span class="p">,</span> <span class="nb">format</span> <span class="o">=</span> <span class="s2">"com.databricks.spark.csv"</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="s2">"true"</span><span class="p">,</span> <span class="n">inferSchema</span> <span class="o">=</span> <span class="s2">"true"</span><span class="p">)</span>
 
 <span class="c1">#Select stars/unresolved light sources from the sample data</span>
 <span class="n">df_noisy</span><span class="o">=</span><span class="n">df_noisy</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">df_noisy</span><span class="o">.</span><span class="n">type</span><span class="o">==</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">df_noisy</span><span class="o">.</span><span class="n">registerTempTable</span><span class="p">(</span><span class="s2">"noisy"</span><span class="p">)</span>
 <span class="n">df_noisy</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="c1">#print ("Schema of df_noisy: %s" % (df_noisy.dtypes))</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Shape of df_noisy: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">df_noisy</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Shape of df_noisy: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">df_noisy</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
 <span class="c1">#print ("Size of df_noisy: %s" % (sizeconv(sys.getsizeof(df_noisy))))</span>
 </pre></div>
 </div>
@@ -1277,7 +1278,7 @@ Shape of df_noisy: 86290 rows
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#  Create dataframe of the PSF (point spread function) of flux values</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#  Create dataframe of the PSF (point spread function) of flux values</span>
 <span class="n">Xcol</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="s1">'ugriz'</span><span class="p">:</span>
     <span class="n">Xcol</span> <span class="o">+=</span> <span class="p">[</span><span class="n">band</span> <span class="o">+</span> <span class="s1">'RawPSF'</span><span class="p">]</span>
@@ -1290,7 +1291,7 @@ Shape of df_noisy: 86290 rows
 <span class="c1">#print XerrCol</span>
 
 <span class="n">Xerr</span> <span class="o">=</span> <span class="n">df_noisy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">XerrCol</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">Xerr</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">Xerr</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1320,7 +1321,7 @@ None
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Adjust extinction terms from Berry et al, arXiv 1111.4985 (1.810, 1.400, 1.0, 0.759, 0.561) with \</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Adjust extinction terms from Berry et al, arXiv 1111.4985 (1.810, 1.400, 1.0, 0.759, 0.561) with \</span>
 <span class="c1"># specific SDSS extinction value 'rExtSFD', then subtract from RawPsf values of X</span>
 
 
@@ -1334,7 +1335,7 @@ None
 
 
 <span class="c1">#print ("Schema of X: %s" % (X.dtypes))</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Shape of X: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Shape of X: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
 <span class="c1">#print ("Size of X: %s" % (sizeconv(sys.getsizeof(X))))</span>
 </pre></div>
 </div>
@@ -1373,15 +1374,15 @@ Shape of X: 86290 rows
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Read the zipped file</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Read the zipped file</span>
 <span class="c1">#stdpath = os.path.join(path,"stripe82calibStars_v2.6.dat.gz" )</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="n">stdpath</span><span class="p">)</span>
 
 <span class="c1">#Remove header lines, each of which starts with "###".</span>
 <span class="n">dataLines</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">"###"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Rows in standard RDD w/o header: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">dataLines</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
-<span class="k">print</span> <span class="n">dataLines</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Rows in standard RDD w/o header: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">dataLines</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="n">dataLines</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1404,7 +1405,7 @@ CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">Row</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">Row</span>
 <span class="c1"># Transform data with UDF</span>
 <span class="k">def</span> <span class="nf">transformToNumeric</span><span class="p">(</span><span class="n">inputStr</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">attList</span> <span class="o">=</span> <span class="n">inputStr</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>    
@@ -1427,7 +1428,7 @@ CALIBSTARS 308.5002136  -1.2277210 0.0320 0.0320   4  0.587   0  0.066  0.066  0
 <span class="c1"># Combine the data and attribute and construct a data frame.</span>
 <span class="n">stdDF_full</span> <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">attrName</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Rows in standard dataframe w/o header: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Rows in standard dataframe w/o header: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
 <span class="n">stdDF_full</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1458,12 +1459,12 @@ only showing top 2 rows
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Trim standard star data to to sample area</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Trim standard star data to to sample area</span>
 
 <span class="n">stdData</span> <span class="o">=</span> <span class="n">stdDF_full</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">RA</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">RA</span> <span class="o"><</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">DEC</span> <span class="o">></span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">DEC</span> <span class="o"><</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">stdData</span><span class="o">.</span><span class="n">registerTempTable</span><span class="p">(</span><span class="s2">"stdData"</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Rows in stdData: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">stdData</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Rows in stdData: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">stdData</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
 
 <span class="n">stdData</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
@@ -1495,7 +1496,7 @@ only showing top 2 rows
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Adjust extinction terms from Berry et al, arXiv 1111.4985 (1.810, 1.400, 1.0, 0.759, 0.561) with specfic SDSS extinction value</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Adjust extinction terms from Berry et al, arXiv 1111.4985 (1.810, 1.400, 1.0, 0.759, 0.561) with specfic SDSS extinction value</span>
 <span class="c1">#'rExtSFD', then subtract from RawPsf values of X</span>
 <span class="c1">#============================================================================</span>
 
@@ -1535,12 +1536,12 @@ only showing top 2 rows
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Join to force inde filtered rows correctly</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Join to force inde filtered rows correctly</span>
 <span class="n">YYerr_temp</span> <span class="o">=</span> <span class="n">Yerr_tmp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Y_tmp</span><span class="p">,</span> <span class="n">Yerr_tmp</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">Y_tmp</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"inner"</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">Y_tmp</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">orderBy</span><span class="p">(</span><span class="n">Yerr_tmp</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 <span class="n">YYerr_filtered</span> <span class="o">=</span> <span class="n">YYerr_temp</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">YYerr_temp</span><span class="o">.</span><span class="n">mmu_g</span> <span class="o"><</span> <span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">YYerr_temp</span><span class="o">.</span><span class="n">greatest</span> <span class="o"><</span> <span class="mf">0.05</span><span class="p">)</span>
 
 <span class="n">YYerr_filtered</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Rows in filter YYerr: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">YYerr_filtered</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Rows in filter YYerr: </span><span class="si">%d</span><span class="s2"> rows"</span> <span class="o">%</span> <span class="p">(</span><span class="n">YYerr_filtered</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
 
 <span class="c1"># Select PSF magnitudes for Y and psf errors for Yerr, create mask from id to also filter data in the table with complete attr</span>
 
@@ -1548,7 +1549,7 @@ only showing top 2 rows
 
 <span class="n">Yerr</span> <span class="o">=</span> <span class="n">YYerr_filtered</span><span class="p">[</span><span class="n">YerrCol</span><span class="p">]</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="n">YYerr_filtered</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"id"</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">Yerr</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">Yerr</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1593,13 +1594,13 @@ None
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">stdData_id</span> <span class="o">=</span> <span class="n">stdData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span> <span class="n">fn</span><span class="o">.</span><span class="n">monotonicallyIncreasingId</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stdData_id</span> <span class="o">=</span> <span class="n">stdData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span> <span class="n">fn</span><span class="o">.</span><span class="n">monotonicallyIncreasingId</span><span class="p">())</span>
 <span class="c1">#print stdData_id.show(5)</span>
 <span class="n">stdData_filtered</span> <span class="o">=</span> <span class="p">(</span><span class="n">stdData_id</span>
                     <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">stdData_id</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">mask</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"inner"</span><span class="p">)</span>
                     <span class="o">.</span><span class="n">orderBy</span><span class="p">(</span><span class="n">stdData_id</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
                     <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
-<span class="k">print</span> <span class="n">stdData_filtered</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"msig_u"</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">stdData_filtered</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"msig_u"</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="c1">#print ("Rows in stdData_sel: %d rows" % (stdData_selected.count()))</span>
 </pre></div>
 </div>
@@ -1641,21 +1642,21 @@ None
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">Xloc</span> <span class="o">=</span> <span class="n">df_noisy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"ra"</span><span class="p">,</span><span class="s2">"dec"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Xloc</span> <span class="o">=</span> <span class="n">df_noisy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"ra"</span><span class="p">,</span><span class="s2">"dec"</span><span class="p">)</span>
 <span class="n">Yloc</span> <span class="o">=</span> <span class="n">stdData_filtered</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"RA"</span><span class="p">,</span><span class="s2">"DEC"</span><span class="p">)</span>
 
 <span class="c1"># hstack stacks the tuples on top of each other instead of in a grid </span>
 <span class="n">Xloc_np</span> <span class="o">=</span> <span class="n">df_to_numpy</span><span class="p">(</span><span class="n">Xloc</span><span class="p">)</span>
 <span class="n">Xlocs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Xloc_np</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
                    <span class="n">Xloc_np</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]))</span>
-<span class="k">print</span> <span class="n">Xlocs</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"number of noisy points:  "</span><span class="p">,</span> <span class="n">Xlocs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">Xlocs</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"number of noisy points:  "</span><span class="p">,</span> <span class="n">Xlocs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
 <span class="n">Yloc_np</span> <span class="o">=</span> <span class="n">df_to_numpy</span><span class="p">(</span><span class="n">Yloc</span><span class="p">)</span>
 <span class="n">Ylocs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">Yloc_np</span><span class="p">[</span><span class="s1">'RA'</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
                    <span class="n">Yloc_np</span><span class="p">[</span><span class="s1">'DEC'</span><span class="p">][:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]))</span>
-<span class="k">print</span> <span class="n">Ylocs</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"number of stacked points:"</span><span class="p">,</span> <span class="n">Ylocs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">Ylocs</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"number of stacked points:"</span><span class="p">,</span> <span class="n">Ylocs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1692,12 +1693,12 @@ None
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># From http://www.astroml.org/: Find all points within 0.9 arcsec-This cutoff was chosen by UW, by plotting a histogram of the log(distances).</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># From http://www.astroml.org/: Find all points within 0.9 arcsec-This cutoff was chosen by UW, by plotting a histogram of the log(distances).</span>
 <span class="c1"># The crossmatch function returns the distance and index of the closest point in Ylocs to each point in Xlocs</span>
        
 <span class="n">dist</span><span class="p">,</span> <span class="n">ind</span> <span class="o">=</span> <span class="n">crossmatch</span><span class="p">(</span><span class="n">Xlocs</span><span class="p">,</span> <span class="n">Ylocs</span><span class="p">,</span> <span class="n">max_distance</span><span class="o">=</span><span class="mf">0.9</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">dist</span>
-<span class="k">print</span> <span class="n">ind</span>
+<span class="nb">print</span> <span class="n">dist</span>
+<span class="nb">print</span> <span class="n">ind</span>
 <span class="n">noisy_mask</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">dist</span><span class="p">))</span>   <span class="c1"># mask contains false for values with no match (are infinite distance to nearest neighbor)</span>
 
 <span class="n">stacked_mask</span> <span class="o">=</span> <span class="n">ind</span><span class="p">[</span><span class="n">noisy_mask</span><span class="p">]</span> <span class="c1">#index number of matched objects in standard star catalog</span>
@@ -1724,7 +1725,7 @@ None
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Convert noisy data to numpy array and filter for crossmatched objects</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Convert noisy data to numpy array and filter for crossmatched objects</span>
 
 <span class="n">noisy_np</span> <span class="o">=</span> <span class="n">df_to_numpy</span><span class="p">(</span><span class="n">df_noisy</span><span class="p">)</span>
 <span class="n">noisy_cm</span> <span class="o">=</span> <span class="n">noisy_np</span><span class="p">[</span><span class="n">noisy_mask</span><span class="p">]</span>
@@ -1753,7 +1754,7 @@ None
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Convert standard data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert standard data</span>
 <span class="n">stdData_np</span> <span class="o">=</span> <span class="n">df_to_numpy</span><span class="p">(</span><span class="n">stdData_filtered</span><span class="p">)</span>
 <span class="n">stdData_cm</span> <span class="o">=</span> <span class="n">stdData_np</span><span class="p">[</span><span class="n">stacked_mask</span><span class="p">]</span>
 
@@ -1769,7 +1770,7 @@ None
 
 <span class="c1"># Confirm datasets are same size</span>
 <span class="k">assert</span> <span class="n">X_cm</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">Y_cm</span><span class="o">.</span><span class="n">shape</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"size after crossmatch:"</span><span class="p">,</span> <span class="n">X_cm</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"size after crossmatch:"</span><span class="p">,</span> <span class="n">X_cm</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1791,7 +1792,7 @@ None
 <div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Save for further processing in GMM_plots notebook</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Save for further processing in GMM_plots notebook</span>
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"Xraw"</span><span class="p">,</span><span class="n">X_cm</span><span class="p">)</span>    <span class="c1">#for XD</span>
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"Xerr"</span><span class="p">,</span> <span class="n">Xerr_cm</span><span class="p">)</span>   <span class="c1">#for XD</span>
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"Ystd"</span><span class="p">,</span><span class="n">Y_cm</span><span class="p">)</span>
@@ -1816,10 +1817,10 @@ None
 <div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">"""</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""</span>
 <span class="sd">Multi-panel plotting tools from astroML, http://www.astroml.org/</span>
 <span class="sd">"""</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
 
 <span class="k">class</span> <span class="nc">MultiAxes</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">"""Visualize Multiple-dimensional data</span>
@@ -1858,14 +1859,14 @@ None
 <span class="sd">        ax = MultiAxes(4)</span>
 <span class="sd">        ax.density(x, bins=[20, 20, 20, 20])</span>
 <span class="sd">    """</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">inner_labels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                 <span class="n">fig</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">left</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">right</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                 <span class="n">wspace</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">inner_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">left</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">right</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">wspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="c1"># Import here so that testing with Agg will work</span>
-        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-        <span class="k">if</span> <span class="n">fig</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+        <span class="k">if</span> <span class="n">fig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fig</span> <span class="o">=</span> <span class="n">fig</span>
 
@@ -1883,10 +1884,10 @@ None
 
     <span class="k">def</span> <span class="nf">_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
         <span class="c1"># Import here so that testing with Agg will work</span>
-        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
-        <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">rcParams</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">key</span> <span class="o">=</span> <span class="s1">'figure.subplot.'</span> <span class="o">+</span> <span class="n">s</span>
                 <span class="n">val</span> <span class="o">=</span> <span class="n">rcParams</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
@@ -1901,7 +1902,7 @@ None
 
     <span class="k">def</span> <span class="nf">_draw_panels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Import here so that testing with Agg will work</span>
-        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o"><=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottom</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'top must be larger than bottom'</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o"><=</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
@@ -1918,7 +1919,7 @@ None
         <span class="n">full_panel_height</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">hspace</span><span class="p">)</span> <span class="o">*</span> <span class="n">panel_height</span>
 
         <span class="n">axes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">ndim</span><span class="p">,</span> <span class="n">ndim</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
-        <span class="n">axes</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+        <span class="n">axes</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ndim</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
@@ -1933,14 +1934,14 @@ None
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ndim</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
                     <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-                    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">NullFormatter</span><span class="p">())</span>
 
             <span class="c1"># remove unneeded y labels</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ndim</span><span class="p">):</span>
                 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ndim</span><span class="p">):</span>
                     <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-                    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">NullFormatter</span><span class="p">())</span>
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
@@ -1961,7 +1962,7 @@ None
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
                 <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">limits</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">limits</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 
@@ -1979,12 +1980,12 @@ None
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
             <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
             <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">set_locators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locators</span><span class="p">):</span>
@@ -1998,7 +1999,7 @@ None
 <span class="sd">            same locator.</span>
 <span class="sd">        """</span>
         <span class="c1"># Import here so that testing with Agg will work</span>
-        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+        <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locators</span><span class="p">,</span> <span class="n">plt</span><span class="o">.</span><span class="n">Locator</span><span class="p">):</span>
             <span class="n">locators</span> <span class="o">=</span> <span class="p">[</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">locators</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">)]</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">locators</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
@@ -2007,7 +2008,7 @@ None
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
                 <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locators</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
                     <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">locators</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 
@@ -2029,7 +2030,7 @@ None
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
                 <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="k">continue</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
@@ -2060,7 +2061,7 @@ None
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
                 <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="k">continue</span>
 
                 <span class="n">H</span><span class="p">,</span> <span class="n">xbins</span><span class="p">,</span> <span class="n">ybins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram2d</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">j</span><span class="p">],</span>
@@ -2081,7 +2082,7 @@ None
 <div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">registerTempTable</span><span class="p">(</span><span class="s2">"std_full"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stdDF_full</span><span class="o">.</span><span class="n">registerTempTable</span><span class="p">(</span><span class="s2">"std_full"</span><span class="p">)</span>
 <span class="c1"># Convert from direct ugriz values to colors, u-g, g-r, r-i, i-z </span>
 <span class="n">stripe82</span> <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"SELECT(mmu_u - mmu_g) as u_g, </span><span class="se">\</span>
 <span class="s2">                        (mmu_g - mmu_r) as g_r, </span><span class="se">\</span>
@@ -2125,7 +2126,7 @@ only showing top 5 rows
 <div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'u-g'</span><span class="p">,</span> <span class="s1">'g-r'</span><span class="p">,</span> <span class="s1">'r-i'</span><span class="p">,</span> <span class="s1">'i-z'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'u-g'</span><span class="p">,</span> <span class="s1">'g-r'</span><span class="p">,</span> <span class="s1">'r-i'</span><span class="p">,</span> <span class="s1">'i-z'</span><span class="p">]</span>
 
 <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
         <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
@@ -3350,7 +3351,7 @@ OkBFmYiIiEgH/D8TMjujQXOM7wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
