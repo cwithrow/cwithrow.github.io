@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>A Series of Unfortunate Code &mdash; Tales From the Data</title>
+  <title>Working with Facebook API (II) &mdash; Tales From the Data</title>
   <meta name="author" content="C Withrow">
 
 
@@ -56,9 +56,9 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">A Series of Unfortunate Code</h1>
+      <h1 class="entry-title">Working with Facebook API (II)</h1>
     <p class="meta">
-<time datetime="2017-03-27T18:00:00-05:00" pubdate>Mon 27 March 2017</time>    </p>
+<time datetime="2019-02-11T16:00:00-06:00" pubdate>Mon 11 February 2019</time>    </p>
 </header>
 
   <div class="entry-content"><style type="text/css">/*!
@@ -1037,31 +1037,34 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I'm trying to go back and add work I did during school. It's not spectacular but I have fond memories.</p>
+<h3 id="Using-Facebook-sdk-for-Python">Using Facebook-sdk for Python<a class="anchor-link" href="#Using-Facebook-sdk-for-Python">Â¶</a></h3><p>Now I've got the basic usage down for the fb api, I need to access it through a Python script that can gather years worth of data and also grab the children (comments and replies to comments).
+I could just use the usual requests library, but there happens to be a lovely facebook graph api package, <a href="https://facebook-sdk.readthedocs.io/en/latest/install.html">facebook-sdk</a>, already tailored for facebook's peculiarities.</p>
+<p>All you have to do is create a connection, using the token you got ala the last post, and use the request method to retrieve the posts.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">===============================================================================</span>
-<span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span>
-<span class="o">-------------------------------------------------------------------------------</span>
-<span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="n">__</span> <span class="o">~</span> <span class="o">~</span><span class="n">__</span> <span class="o">~</span>  <span class="n">__</span> <span class="o">~</span> <span class="n">_</span><span class="o">|</span><span class="n">_</span><span class="o">~</span> <span class="n">_</span><span class="o">|</span><span class="n">_</span> <span class="o">~</span> <span class="o">~</span>  <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span>
-<span class="o">---------|</span><span class="n">__</span><span class="p">)</span><span class="o">--|--</span><span class="p">)</span><span class="o">--|</span><span class="n">__</span><span class="o">|---|----|---|--|--------------------------------------</span>
-<span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~|</span> <span class="o">~</span> <span class="o">~</span> <span class="o">|</span> <span class="o">~</span> <span class="o">~</span> <span class="p">(</span><span class="n">___</span><span class="o">~</span> <span class="o">~|~</span> <span class="o">~</span> <span class="o">|</span> <span class="o">~</span> <span class="p">(</span><span class="n">__</span><span class="o">|</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span>
-<span class="o">-------</span><span class="p">(</span><span class="n">_</span><span class="o">|------------------------------|--------------------------------------</span>
-<span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="n">__</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span><span class="n">__</span><span class="p">)</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span>
-<span class="o">-----------------|</span>  <span class="p">)</span><span class="o">---------------------------------|------------------------</span>
-<span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span><span class="p">(</span><span class="n">___</span> <span class="o">~</span> <span class="o">~</span><span class="n">__</span><span class="o">~</span> <span class="o">~|~</span> <span class="o">~</span> <span class="o">~</span> <span class="n">__</span><span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">|~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">|</span> <span class="o">~</span> <span class="n">__</span><span class="o">~</span> <span class="o">~</span> <span class="n">__</span><span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span>
-<span class="o">--------------------</span> <span class="o">|--|</span>  <span class="p">)</span><span class="o">--|</span><span class="n">__</span><span class="o">---|</span><span class="n">__</span><span class="o">|---</span><span class="n">__</span><span class="o">|--|--|--|--|</span><span class="n">__</span><span class="o">|--|--</span><span class="p">)</span><span class="o">------------</span>
-<span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span><span class="p">(</span><span class="n">___</span><span class="p">)</span> <span class="o">~</span><span class="p">(</span><span class="n">___</span> <span class="o">~|~</span> <span class="o">|</span> <span class="o">~</span><span class="p">(</span><span class="n">___</span> <span class="o">~</span><span class="p">(</span><span class="n">__</span><span class="o">|</span> <span class="o">~|</span><span class="n">__</span><span class="p">(</span><span class="o">~</span> <span class="p">(</span> <span class="o">~</span><span class="p">(</span><span class="n">___</span><span class="o">~</span> <span class="o">|~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span>
-<span class="o">-------------------------------------------------------------------------------</span>
-<span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span> <span class="o">~</span>
-<span class="o">===============================================================================</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">facebook</span>
+
+<span class="n">graph</span> <span class="o">=</span> <span class="n">facebook</span><span class="o">.</span><span class="n">GraphAPI</span><span class="p">(</span><span class="n">access_token</span><span class="o">=</span><span class="n">fb_token</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">'3.1'</span><span class="p">)</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">group_id</span><span class="o">+</span><span class="s1">'/?fields=feed.since(02-01-2019).until(02-03-2019).limit(100)'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">posts</span><span class="p">[</span><span class="s1">'feed'</span><span class="p">][</span><span class="s1">'data'</span><span class="p">]))</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>81
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1070,10 +1073,15 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Preemptive Scheduler</strong></p>
-<p>Here's a Preemptive scheduler I created for an assignment in my Operating Systems course. 
-(Professor said points for pretty, and I had some extra time- hence the "art")</p>
-<p><a href="https://github.com/cwithrow/java/tree/master/Scheduler">'Preemptive Scheduler'</a></p>
+<p>And voila you get the posts in a dictionary format! It's important to specify the version, it can be glitchy otherwise. One grown-up programmer thing I did in my code was use a config file to store the group_id and access_token, just by importing and doing config.access_token, and then adding the config file to my gitignore file so that it's ignored. Config file always sounds so intimidating to me, like if you touch the file wrong a space shuttle will blow up, but in this case it's just a couple variables.</p>
+<p>Next I added a function to grab comments and replies for each post, by searching for comments on the post id. I again tried some Python-adulting by using logger, and actually catching exceptions, but I don't think I quite have the hang of it.</p>
+<p><strong>API Rate Limits</strong></p>
+<p>The next problem is preventing errors from the 200 call an hour limit facebook places. As you can see, just 2 days posts totals 81- to retrieve comments for each post, I'll have to make an api call, and for any replies to each comment- assuming each have just 2 comments, that's more than 200 calls.</p>
+<p>A grownup coding way to manage this is by accessing the X-App-Usage <a href="https://developers.facebook.com/docs/graph-api/advanced/rate-limiting#application-level-rate-limiting">headers</a>, to always check the percentage of calls left, but standard requests functions to get header data are limited with the facebook-sdk and I'm anxious to explore the data, so I just used the old time.sleep()function in between API calls.</p>
+<p>Then all that's left is exporting the dictionary to json and making sure I sorted the replies/comments/posts properly, with a good json viewer.</p>
+<p><img alt="The Good Json" src="https://www.dropbox.com/s/ildczlu3b9umemb/51357613_10104574856862315_1619007614652252160_n.jpg?raw=1" /></p>
+<p>I like <a href="https://jsoneditoronline.org/#/">this one.</a></p>
+<p>Before I invest too much in making an efficient script and getting #allthedata, I want to check out a sample in Pandas and make sure I'm getting things in the right format. If you're curious about the current state of this script, you can see it at the <a href="https://github.com/cwithrow/niffler/tree/master/niffler/getFBdata">niffler repo</a>.</p>
 </div>
 </div>
 </div>
@@ -1113,11 +1121,11 @@ h6:hover .anchor-link {
         C Withrow
     </span>
   </span>
-<time datetime="2017-03-27T18:00:00-05:00" pubdate>Mon 27 March 2017</time>  <span class="categories">
+<time datetime="2019-02-11T16:00:00-06:00" pubdate>Mon 11 February 2019</time>  <span class="categories">
     <a class='category' href='./category/blog.html'>Blog</a>
   </span>
   <span class="categories">
-    <a class="category" href="./tag/java.html">Java</a>  </span>
+    <a class="category" href="./tag/python.html">python</a>,    <a class="category" href="./tag/facebook.html">facebook</a>,    <a class="category" href="./tag/api.html">api</a>  </span>
 </p><div class="sharing">
 </div>    </footer>
   </article>
@@ -1184,9 +1192,9 @@ h6:hover .anchor-link {
   <script src="./theme/js/octopress.js" type="text/javascript"></script>
   <script type="text/javascript">
     var disqus_shortname = 'cwithrow-github-io';
-    var disqus_identifier = '/series-unfortunate-code.html';
-    var disqus_url = 'http://cwithrow.github.io/series-unfortunate-code.html';
-    var disqus_title = 'A Series of Unfortunate Code';
+    var disqus_identifier = '/working-facebook-api-II.html';
+    var disqus_url = 'http://cwithrow.github.io/working-facebook-api-II.html';
+    var disqus_title = 'Working with Facebook API (II)';
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
