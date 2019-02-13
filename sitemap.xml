@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/</loc>
-<lastmod>2019-02-13T09:31:48-00:00</lastmod>
+<lastmod>2019-02-13T12:13:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/archives.html</loc>
-<lastmod>2019-02-13T09:31:48-00:00</lastmod>
+<lastmod>2019-02-13T12:13:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tags.html</loc>
-<lastmod>2019-02-13T09:31:48-00:00</lastmod>
+<lastmod>2019-02-13T12:13:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/categories.html</loc>
-<lastmod>2019-02-13T09:31:48-00:00</lastmod>
+<lastmod>2019-02-13T12:13:54-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -39,14 +39,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://cwithrow.github.io/working-facebook-api-II.html</loc>
+<loc>http://cwithrow.github.io/extracting-data-facebook-api-II.html</loc>
 <lastmod>2019-02-11T16:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://cwithrow.github.io/working-facebook-api.html</loc>
+<loc>http://cwithrow.github.io/extracting-data-facebook-api.html</loc>
 <lastmod>2019-01-30T10:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -123,7 +123,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://cwithrow.github.io/tag/project.html</loc>
+<loc>http://cwithrow.github.io/tag/blog.html</loc>
 <lastmod>2019-01-28T10:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -165,22 +165,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://cwithrow.github.io/tag/facebook-api.html</loc>
-<lastmod>2019-01-30T10:00:00-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://cwithrow.github.io/tag/blog.html</loc>
-<lastmod>2019-01-30T10:00:00-05:51</lastmod>
+<loc>http://cwithrow.github.io/tag/project.html</loc>
+<lastmod>2019-01-28T10:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tag/data-extraction.html</loc>
-<lastmod>2019-01-30T10:00:00-05:51</lastmod>
+<lastmod>2019-02-11T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -215,7 +208,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/tag/tutorial.html</loc>
-<lastmod>2019-01-30T10:00:00-05:51</lastmod>
+<lastmod>2019-02-11T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
