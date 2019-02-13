@@ -975,22 +975,22 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;&lt;strong&gt; Using Facebook-sdk for Python &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Now I've got the basic usage down for the fb api, I need to access it through a Python script that can gather years worth of data and also grab the children (comments and replies to comments).
+&lt;p&gt;&lt;strong&gt; Using Facebook-sdk for Python &lt;/strong&gt;
+Now I've got the basic usage down for the fb api, I need to access it through a Python script that can gather years worth of data and also grab the children (comments and replies to comments).
 I could just use the usual requests library, but there happens to be a lovely facebook graph api package, &lt;a href="https://facebook-sdk.readthedocs.io/en/latest/install.html"&gt;facebook-sdk&lt;/a&gt;, already tailored for facebook's peculiarities.&lt;/p&gt;
-&lt;p&gt;All you have to do is create a connection, using the token you got ala the last post, and use the request method to retrieve the posts.&lt;/p&gt;
+&lt;p&gt;All you have to do is create a connection, using the token you got ala the last post, and use the request method to retrieve the posts. &lt;em&gt;Note&lt;/em&gt;: When using Facebook-sdk it's important to specify the version, it can be glitchy otherwise. Also, the limit parameter must be set or else it defaults to retrieving 25 posts/comments, and the dates refer to the last updated date- Facebook doesn't provide the date the post was created :((though it does for comments).&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [19]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [26]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;facebook&lt;/span&gt;
 
 &lt;span class="n"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;facebook&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GraphAPI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;access_token&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;fb_token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'3.1'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;posts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;group_id&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;'/?fields=feed.since(02-01-2019).until(02-03-2019).limit(100)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;posts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;group_id&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;'/?fields=feed.since(2019-02-01).until(2019-02-08).limit(100)'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;posts&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'feed'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;'data'&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -1001,7 +1001,7 @@ I could just use the usual requests library, but there happens to be a lovely fa
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;81
+&lt;pre&gt;26
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1012,14 +1012,19 @@ I could just use the usual requests library, but there happens to be a lovely fa
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;And voila you get the posts in a dictionary format! It's important to specify the version, it can be glitchy otherwise. One grown-up programmer thing I did in my code was use a config file to store the group_id and access_token, just by importing and doing config.access_token, and then adding the config file to my gitignore file so that it's ignored. Config file always sounds so intimidating to me, like if you touch the file wrong a space shuttle will blow up, but in this case it's just a couple variables.&lt;/p&gt;
-&lt;p&gt;Next I added a function to grab comments and replies for each post, by searching for comments on the post id. I again tried some Python-adulting by using logger, and actually catching exceptions, but I don't think I quite have the hang of it.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;API Rate Limits&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The next problem is preventing errors from the 200 call an hour limit facebook places. As you can see, just 2 days posts totals 81- to retrieve comments for each post, I'll have to make an api call, and for any replies to each comment- assuming each have just 2 comments, that's more than 200 calls.&lt;/p&gt;
-&lt;p&gt;A grownup coding way to manage this is by accessing the X-App-Usage &lt;a href="https://developers.facebook.com/docs/graph-api/advanced/rate-limiting#application-level-rate-limiting"&gt;headers&lt;/a&gt;, to always check the percentage of calls left, but standard requests functions to get header data are limited with the facebook-sdk and I'm anxious to explore the data, so I just used the old time.sleep()function in between API calls.&lt;/p&gt;
-&lt;p&gt;Then all that's left is exporting the dictionary to json and making sure I sorted the replies/comments/posts properly, with a good json viewer.&lt;/p&gt;
+&lt;p&gt;And voila, you get the posts in a dictionary format! 
+Every post is stored in 'data', as a message with an id. Next, I added a function to grab comments and replies for each post, by searching for comments on the post id. 
+Then all that's left is exporting the dictionary to json and making sure I sorted the replies/comments/posts properly, with a json viewer.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="sample data" src="https://www.dropbox.com/s/7p1sep89qg09lwb/json_view.png?raw=1" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: it's important to have a good json viewer.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="The Good Json" src="https://www.dropbox.com/s/ildczlu3b9umemb/51357613_10104574856862315_1619007614652252160_n.jpg?raw=1" /&gt;&lt;/p&gt;
-&lt;p&gt;I like &lt;a href="https://jsoneditoronline.org/#/"&gt;this one.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I like &lt;a href="https://jsoneditoronline.org/#/"&gt;this one&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One grown-up programmer thing I did in my code was use a config file to store the group_id and access_token, just by importing and doing config.access_token, and then adding the config file to my gitignore file so that it's ignored. Config file always sounds so intimidating to me, like if you touch the file wrong a space shuttle will blow up, but in this case it's just a couple variables. I also tried using logger, and actually catching exceptions, but I don't think I quite have the hang of it. A task for another day.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;API Rate Limits&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The next problem is preventing errors from the 200 calls an hour limit facebook places. As you can see, just a week's posts totals 26- to retrieve comments for each post, I'll have to make an API call, and for any replies to each comment- assuming each have just 10 comments and replies, that's more than 200 calls.&lt;/p&gt;
+&lt;p&gt;A grownup coding way to manage this is by accessing the X-App-Usage &lt;a href="https://developers.facebook.com/docs/graph-api/advanced/rate-limiting#application-level-rate-limiting"&gt;headers&lt;/a&gt;, to always check the percentage of calls left, but standard requests functions to get header data are limited with the facebook-sdk and I'm anxious to explore the data, so I just used the old time.sleep()function in between API calls. I can also view the API calls in the Facebook App Dashboard, shown here before I added pausing between calls.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="API calls" src="https://www.dropbox.com/s/pcm4s0skp52ciig/Screen%20Shot%202019-02-12%20at%2010.40.21%20AM.png?raw=1" /&gt;&lt;/p&gt;
+&lt;p&gt;After the last calls shown I got an error when trying to grab more data, because it had already past 200.  But after adding only a 2 second pause between calls, which should still exceed the published limits, the dashboard doesn't show any calls, so seems Facebook's not too strict before throttling.&lt;/p&gt;
 &lt;p&gt;Before I invest too much in making an efficient script and getting #allthedata, I want to check out a sample in Pandas and make sure I'm getting things in the right format. If you're curious about the current state of this script, you can see it at the &lt;a href="https://github.com/cwithrow/niffler/tree/master/niffler/getFBdata"&gt;niffler repo&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
