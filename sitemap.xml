@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/</loc>
-<lastmod>2019-02-13T12:19:47-00:00</lastmod>
+<lastmod>2019-02-28T20:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/archives.html</loc>
-<lastmod>2019-02-13T12:19:47-00:00</lastmod>
+<lastmod>2019-02-28T20:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/tags.html</loc>
-<lastmod>2019-02-13T12:19:47-00:00</lastmod>
+<lastmod>2019-02-28T20:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/categories.html</loc>
-<lastmod>2019-02-13T12:19:47-00:00</lastmod>
+<lastmod>2019-02-28T20:21:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://cwithrow.github.io/pages/about me.html</loc>
 <lastmod>2017-02-01T20:00:00-06:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://cwithrow.github.io/exploring-json-data-pandas.html</loc>
+<lastmod>2019-02-15T16:00:00-06:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -103,7 +110,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/category/blog.html</loc>
-<lastmod>2019-02-11T16:00:00-05:51</lastmod>
+<lastmod>2019-02-15T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -145,7 +152,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://cwithrow.github.io/tag/python.html</loc>
-<lastmod>2019-02-11T16:00:00-05:51</lastmod>
+<lastmod>2019-02-15T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -160,6 +167,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://cwithrow.github.io/tag/text-analytics.html</loc>
 <lastmod>2019-01-28T10:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://cwithrow.github.io/tag/facebook-api.html</loc>
+<lastmod>2019-02-15T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -207,15 +221,22 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://cwithrow.github.io/tag/pandas.html</loc>
+<lastmod>2019-02-15T16:00:00-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://cwithrow.github.io/tag/tutorial.html</loc>
-<lastmod>2019-02-11T16:00:00-05:51</lastmod>
+<lastmod>2019-02-15T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://cwithrow.github.io/author/c-withrow.html</loc>
-<lastmod>2019-02-11T16:00:00-05:51</lastmod>
+<lastmod>2019-02-15T16:00:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

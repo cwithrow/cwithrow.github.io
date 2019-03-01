@@ -4,8 +4,10 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>About me &mdash; Tales From the Data</title>
+  <title>Exploring Json Data With Pandas &mdash; Tales From the Data</title>
   <meta name="author" content="C Withrow">
+
+
 
 
 
@@ -16,9 +18,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link href="../favicon.png" rel="icon">
+    <link href="./favicon.png" rel="icon">
 
-  <link href="../theme/css/main.css" media="screen, projection"
+  <link href="./theme/css/main.css" media="screen, projection"
         rel="stylesheet" type="text/css">
 
   <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
@@ -29,7 +31,7 @@
 
 <body>
   <header role="banner"><hgroup>
-  <h1><a href="../">Tales From the Data</a></h1>
+  <h1><a href="./">Tales From the Data</a></h1>
     <h2>~an informal portfolio~</h2>
 </hgroup></header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
@@ -39,24 +41,27 @@
 <ul class="main-navigation">
     <li><a href="/pages/about me.html">About me</a></li>
     <li><a href="/pdfs/Resume.pdf">Resume</a></li>
-      <li >
-        <a href="../category/blog.html">Blog</a>
+      <li class="active">
+        <a href="./category/blog.html">Blog</a>
       </li>
       <li >
-        <a href="../category/projects.html">Projects</a>
+        <a href="./category/projects.html">Projects</a>
       </li>
       <li >
-        <a href="../category/tutorials.html">Tutorials</a>
+        <a href="./category/tutorials.html">Tutorials</a>
       </li>
 </ul></nav>
   <div id="main">
     <div id="content">
 <div>
-  <article role="article">
-    <header>
-      <h1 class="entry-title">About me</h1>
-    </header>
-    <style type="text/css">/*!
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Exploring Json Data With Pandas</h1>
+    <p class="meta">
+<time datetime="2019-02-15T16:00:00-06:00" pubdate>Fri 15 February 2019</time>    </p>
+</header>
+
+  <div class="entry-content"><style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -1032,13 +1037,239 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="profile" src="https://www.dropbox.com/s/kn64hu331tvhqdp/Profile6_small.jpeg?raw=1" />
-<strong>Candice R Withrow,</strong> MS in Comp Sci</p>
-<p>Hello! I'm a data enthusiast still early in my career. Professionally, I have 1.5 years working with data for a small startup- providing data extraction, aggregation, and analytics for data related to residential solar energy, taking the product from a concept to design. I wore many hats in this role and learned a lot!</p>
-<p>In my MS program, my thesis project explored the potential of Apache Spark for analyzing astronomical numerical data. I also have a degree/research experience in physics, and spent time studying engineering- I won't be content until I understand how everything works.</p>
-<p>In my free time I enjoy art, hiking, and trying to scare my son.</p>
-<p><strong>Experience with:</strong> Python, Pandas, SQL/dbms, Rest APIs, PySpark, AWS , CLI, bash scripting, virtual environments, Excel</p>
-<p><strong>Currently Studying:</strong> text analytics, Facebook API, chatbots, and always more Python to learn</p>
+<p><strong>Flattening Jsons with Pandas</strong>
+You may recall the json view showed messy nested dictionaries. To make it more readable, I altered what level of the data it extracts, but still need to do something to view it as a table. In the next post I'll do a different structuring approach for downloading the bulk data, but for now I just want to look some more at what I have.</p>
+<p>Out of the box, Pandas does not like the json.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">wdir</span> <span class="o">=</span> <span class="s1">'/Users/candicewithrow/code/niffler/niffler'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wdir</span><span class="p">,</span><span class="s1">'output/full_02_03_2019.json'</span><span class="p">),</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">nested_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+           
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="n">nested_data</span><span class="p">:</span>
+    <span class="n">rec</span><span class="p">[</span><span class="s1">'post_id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">rec</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
+    <span class="n">rec</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">rec</span><span class="p">[</span><span class="s1">'comments'</span><span class="p">]:</span>
+        <span class="n">c</span><span class="p">[</span><span class="s1">'cid'</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">'replies'</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">c</span><span class="p">[</span><span class="s1">'replies'</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="s1">'id'</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">r</span><span class="p">[</span><span class="s1">'rid'</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span>
+                    <span class="n">r</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wdir</span><span class="p">,</span><span class="s1">'output/full_02_03_2019.json'</span><span class="p">),</span> <span class="n">orient</span><span class="o">=</span><span class="s1">'records'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>comments</th>
+<th>id</th>
+<th>message</th>
+<th>updated_time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>[{'message': 'Not ocular but yes migraines are...</td>
+<td>6.456587e+27</td>
+<td>Do any of you get ocular migraines? Any relati...</td>
+<td>2019-02-02 19:04:06</td>
+</tr>
+<tr>
+<th>1</th>
+<td>[{'message': 'Make shure you air your rooms an...</td>
+<td>6.456587e+27</td>
+<td>Anyone know of any safe nebulizer treatments t...</td>
+<td>2019-02-02 17:02:13</td>
+</tr>
+<tr>
+<th>2</th>
+<td>[{'message': 'I looked up the ingredients and ...</td>
+<td>6.456587e+27</td>
+<td>Has anyone had problems with Bruegger's plain ...</td>
+<td>2019-02-01 21:37:49</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Luckily, there's a tool to flatten the records further.
+First I loaded the records as 'nested_data' using the Python json module, and iterated through to make 'id' labels more specific.
+If you just run json_normalize(nested_data) it will show same as above.
+To break it up I'll create separate tables for different nodes.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.io.json</span> <span class="k">import</span> <span class="n">json_normalize</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">nested_data</span><span class="p">)[[</span><span class="s1">'post_id'</span><span class="p">,</span><span class="s1">'message'</span><span class="p">,</span><span class="s1">'updated_time'</span><span class="p">]]</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">nested_data</span><span class="p">,</span> <span class="n">record_path</span><span class="o">=</span><span class="s1">'comments'</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">[</span><span class="s1">'post_id'</span><span class="p">])</span>
+<span class="n">comments</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img alt="Results Capture" src="https://www.dropbox.com/s/oca5qji9k2y424c/Screen%20Shot%202019-02-28%20at%207.21.54%20PM.png?raw=1" /></p>
+<p>Observe the blacked out name under 'replies'. Although the Facebook Graph API doesn't grab user ID's or names on posts now, the replies and any tags will contain user names. This is something I will have to filter out.</p>
+<p>Unfortunately, when I try to flatten the subrecord, replies, it can't handle the NaNs, and results in key errors even if I give them the keys with null values. For now I'll just look at posts and comments. I've also changed the time format to just being a date. (Don't ask me why it doesn't include the time the post is created, just updated..)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">posts</span><span class="p">,</span> <span class="n">comments</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'post_id'</span><span class="p">)</span>
+<span class="n">full_df</span><span class="p">[</span><span class="s1">'post_updated'</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">full_df</span><span class="p">[</span><span class="s1">'updated_time'</span><span class="p">])</span>
+<span class="n">full_df</span><span class="p">[</span><span class="s1">'message_created'</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">full_df</span><span class="p">[</span><span class="s1">'created_time'</span><span class="p">])</span>
+<span class="n">full_df</span><span class="p">[[</span><span class="s1">'message_x'</span><span class="p">,</span> <span class="s1">'post_updated'</span><span class="p">,</span><span class="s1">'message_y'</span><span class="p">,</span> <span class="s1">'message_created'</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>message_x</th>
+<th>post_updated</th>
+<th>message_y</th>
+<th>message_created</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Do any of you get ocular migraines? Any relati...</td>
+<td>2019-02-02 19:04:06</td>
+<td>Not ocular but yes migraines are my primary re...</td>
+<td>2019-01-24 20:05:45</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Do any of you get ocular migraines? Any relati...</td>
+<td>2019-02-02 19:04:06</td>
+<td>I  have  ocular  migraines  occasionally,  but...</td>
+<td>2019-01-24 22:58:51</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This quick look showed me a few things:</p>
+<ul>
+<li>I need to distinguish keys, particularly the times which refer to different components</li>
+<li>I need to see if I can get a group member list of names to filter out from posts. I really wish Names or IDs /were/ included so that I could filter repeat answers (if 'Susan' always suggests same thing, it's not being uniquely recommended). </li>
+<li>Facebook's privacy policy is inconsistent and confusing! (next post)</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1070,27 +1301,46 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>
-
+</div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">
+        C Withrow
+    </span>
+  </span>
+<time datetime="2019-02-15T16:00:00-06:00" pubdate>Fri 15 February 2019</time>  <span class="categories">
+    <a class='category' href='./category/blog.html'>Blog</a>
+  </span>
+  <span class="categories">
+    <a class="category" href="./tag/python.html">Python</a>,    <a class="category" href="./tag/facebook-api.html">Facebook API</a>,    <a class="category" href="./tag/tutorial.html">Tutorial</a>,    <a class="category" href="./tag/pandas.html">Pandas</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
   </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
 </div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="../exploring-json-data-pandas.html">Exploring Json Data With Pandas</a>
+          <a href="./exploring-json-data-pandas.html">Exploring Json Data With Pandas</a>
       </li>
       <li class="post">
-          <a href="../extracting-data-facebook-api-II.html">Extracting Data with Facebook API (II)</a>
+          <a href="./extracting-data-facebook-api-II.html">Extracting Data with Facebook API (II)</a>
       </li>
       <li class="post">
-          <a href="../extracting-data-facebook-api.html">Extracting Data with Facebook API</a>
+          <a href="./extracting-data-facebook-api.html">Extracting Data with Facebook API</a>
       </li>
       <li class="post">
-          <a href="../sulfite-allergy-data-project.html">Sulfite Allergy Data Project Overview</a>
+          <a href="./sulfite-allergy-data-project.html">Sulfite Allergy Data Project Overview</a>
       </li>
       <li class="post">
-          <a href="../file-paths.html">Windows File Paths</a>
+          <a href="./file-paths.html">Windows File Paths</a>
       </li>
     </ul>
   </section>
@@ -1098,16 +1348,16 @@ h6:hover .anchor-link {
       
     <h1>Categories</h1>
     <ul id="recent_posts">
-        <li><a href="../category/blog.html">Blog</a></li>
-        <li><a href="../category/projects.html">Projects</a></li>
-        <li><a href="../category/tutorials.html">Tutorials</a></li>
+        <li><a href="./category/blog.html">Blog</a></li>
+        <li><a href="./category/projects.html">Projects</a></li>
+        <li><a href="./category/tutorials.html">Tutorials</a></li>
     </ul>
   </section>
  
 
   <section>
   <h1>Tags</h1>
-    <a href="../tag/blog.html">blog</a>,    <a href="../tag/apache-spark.html">Apache Spark</a>,    <a href="../tag/java.html">Java</a>,    <a href="../tag/python.html">Python</a>,    <a href="../tag/aws.html">AWS</a>,    <a href="../tag/text-analytics.html">text analytics</a>,    <a href="../tag/facebook-api.html">Facebook API</a>,    <a href="../tag/project.html">project</a>,    <a href="../tag/data-extraction.html">Data Extraction</a>,    <a href="../tag/api.html">API</a>,    <a href="../tag/facebook.html">Facebook</a>,    <a href="../tag/windows.html">windows</a>,    <a href="../tag/sulfites.html">sulfites</a>,    <a href="../tag/pandas.html">Pandas</a>,    <a href="../tag/tutorial.html">Tutorial</a>  </section>
+    <a href="./tag/blog.html">blog</a>,    <a href="./tag/apache-spark.html">Apache Spark</a>,    <a href="./tag/java.html">Java</a>,    <a href="./tag/python.html">Python</a>,    <a href="./tag/aws.html">AWS</a>,    <a href="./tag/text-analytics.html">text analytics</a>,    <a href="./tag/facebook-api.html">Facebook API</a>,    <a href="./tag/project.html">project</a>,    <a href="./tag/data-extraction.html">Data Extraction</a>,    <a href="./tag/api.html">API</a>,    <a href="./tag/facebook.html">Facebook</a>,    <a href="./tag/windows.html">windows</a>,    <a href="./tag/sulfites.html">sulfites</a>,    <a href="./tag/pandas.html">Pandas</a>,    <a href="./tag/tutorial.html">Tutorial</a>  </section>
 
 
     <section>
@@ -1125,11 +1375,14 @@ h6:hover .anchor-link {
     Copyright &copy;  2016&ndash;2019  C Withrow &mdash;
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
-  <script src="../theme/js/modernizr-2.0.js"></script>
-  <script src="../theme/js/ender.js"></script>
-  <script src="../theme/js/octopress.js" type="text/javascript"></script>
+  <script src="./theme/js/modernizr-2.0.js"></script>
+  <script src="./theme/js/ender.js"></script>
+  <script src="./theme/js/octopress.js" type="text/javascript"></script>
   <script type="text/javascript">
     var disqus_shortname = 'cwithrow-github-io';
+    var disqus_identifier = '/exploring-json-data-pandas.html';
+    var disqus_url = 'http://cwithrow.github.io/exploring-json-data-pandas.html';
+    var disqus_title = 'Exploring Json Data With Pandas';
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
