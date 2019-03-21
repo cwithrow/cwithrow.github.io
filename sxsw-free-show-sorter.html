@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Windows File Paths &mdash; Tales From the Data</title>
+  <title>SXSW Free Show Sorter &mdash; Tales From the Data</title>
   <meta name="author" content="C Withrow">
 
 
@@ -41,10 +41,10 @@
 <ul class="main-navigation">
     <li><a href="/pages/about me.html">About me</a></li>
     <li><a href="/pdfs/Resume.pdf">Resume</a></li>
-      <li class="active">
+      <li >
         <a href="./category/blog.html">Blog</a>
       </li>
-      <li >
+      <li class="active">
         <a href="./category/projects.html">Projects</a>
       </li>
       <li >
@@ -56,9 +56,9 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Windows File Paths</h1>
+      <h1 class="entry-title">SXSW Free Show Sorter</h1>
     <p class="meta">
-<time datetime="2017-04-10T16:00:00-05:00" pubdate>Mon 10 April 2017</time>    </p>
+<time datetime="2019-03-21T03:00:00-05:00" pubdate>Thu 21 March 2019</time>    </p>
 </header>
 
   <div class="entry-content"><style type="text/css">/*!
@@ -1037,22 +1037,146 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another day, another Windows quirk.
-Today I found an explanation and trick (read, proper way) to write a file path in Python (or probably any language).
-I am sure this has been the reason behind inconsistent "relative path" success many times in the past year or so of working with data.</p>
-<p>The most recent head-against-wall experience:</p>
-<p>This ...</p>
+<p>Every March the SXSW film/music/tech festival invades Austin for a week plus. There's even a job fair, which /used/ to be free and amazing (if mostly out of town companies hiring). But this year it required a trade show badge- badges for the different parts range from \$500 - \$2000, which is pretty exclusivist if you ask me, but it's ok. What matters is that there's still a ton of free music shows, every day, with local bands and those from as far away as Germany.</p>
+<p>The whole thing's kinda chaotic though, with plans being plans being settled the week before and some local venues each squeezing 15 bands into a day. Fortunately, a local paper publishes a list of unofficial, mostly free shows that don't require badges. The list is exhaustive though, covering 9 days, and very tedious to read through!</p>
+<p>View web preserved one from 2018 here: <a href="https://web.archive.org/web/20180309231541/https://www.austinchronicle.com/sxsw/unofficial/">Austin Chronicle Unofficial Shows</a></p>
+<p><img alt="Screenshot of 2018 shows" src="https://www.dropbox.com/s/roohttgt57n26ps/Screen%20Shot%202019-03-21%20at%203.28.53%20PM.png?raw=1" /></p>
+<p>As you can see the shows are sorted by day --> venue. It'sWhat I'd like is to be able to see a list of shows by performer, without combing all this- it's pretty easy to miss when scanning this mess. Enter, the <a href="https://github.com/cwithrow/SXSorter">SXSorter</a>!</p>
+<p>I used BeautifulSoup to parse through the html, break up the performers, extract their show times (when listed) and then output to a nice unnested json, which is easily loaded into Pandas or Sql.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="s1">'data\labeledTrainData.tsv'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">wdir</span> <span class="o">=</span> <span class="s1">'/Users/candicewithrow/code/SXSorter/data'</span>
+<span class="n">all_performances</span>  <span class="o">=</span> <span class="s1">'SXSWfreeShows.json'</span>
+
+<span class="n">perf_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wdir</span><span class="p">,</span> <span class="n">all_performances</span><span class="p">),</span> <span class="n">orient</span><span class="o">=</span> <span class="s1">'record'</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perf_df</span><span class="p">[</span><span class="n">perf_df</span><span class="p">[</span><span class="s1">'perf_name'</span><span class="p">]</span><span class="o">==</span><span class="s1">'Calliope Musicals'</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>club</th>
+<th>date</th>
+<th>location</th>
+<th>location_link</th>
+<th>perf_name</th>
+<th>perf_time</th>
+<th>show_name</th>
+<th>show_time</th>
+<th>ticket_info</th>
+<th>ticket_link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>542</th>
+<td>GSD&M; Advertising</td>
+<td>Wednesday, March 13</td>
+<td>None</td>
+<td>https://www.austinchronicle.com/locations/45043/</td>
+<td>Calliope Musicals</td>
+<td>2:40</td>
+<td>Black Fret Showcase</td>
+<td>0</td>
+<td>facebook</td>
+<td>https://www.facebook.com/events/2051779921607658/</td>
+</tr>
+<tr>
+<th>1410</th>
+<td>Guero's Taco Bar</td>
+<td>Thursday, March 14</td>
+<td>None</td>
+<td>https://www.austinchronicle.com/locations/47289/</td>
+<td>Calliope Musicals</td>
+<td>4:00</td>
+<td>Frenchie Smith Records Showcase</td>
+<td>0</td>
+<td>Facebook</td>
+<td>https://www.facebook.com/events/559926351193123/</td>
+</tr>
+<tr>
+<th>2077</th>
+<td>Buffalo Billiards</td>
+<td>Friday, March 15</td>
+<td>None</td>
+<td>https://www.austinchronicle.com/locations/46990/</td>
+<td>Calliope Musicals</td>
+<td>4:00</td>
+<td>101X Day Party</td>
+<td>0</td>
+<td>More info</td>
+<td>https://www.101x.com/dayparty19</td>
+</tr>
+<tr>
+<th>3207</th>
+<td>Dozen Street</td>
+<td>Saturday, March 16</td>
+<td>None</td>
+<td>https://www.austinchronicle.com/locations/1540...</td>
+<td>Calliope Musicals</td>
+<td>0</td>
+<td>Easy Doz It</td>
+<td>0</td>
+<td>Facebook</td>
+<td>https://www.facebook.com/events/2308398699372580/</td>
+</tr>
+<tr>
+<th>3382</th>
+<td>Key Bar</td>
+<td>Saturday, March 16</td>
+<td>None</td>
+<td>https://www.austinchronicle.com/locations/703702/</td>
+<td>Calliope Musicals</td>
+<td>6:00</td>
+<td>None</td>
+<td>0</td>
+<td>facebook</td>
+<td>https://www.facebook.com/events/296187457718684/</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1061,55 +1185,7 @@ I am sure this has been the reason behind inconsistent "relative path" success m
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>...works fine.</p>
-<p>This however ...</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="s1">'data</span><span class="se">\t</span><span class="s1">estData.tsv'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>DOES NOT.
-<img alt="head-against-wall-gif" src="https://www.dropbox.com/s/7sfjvewnv09d5yq/head-against-wall.gif?raw=1" /></p>
-<p>It returns a lengthy file not found error. 
-This time I googled the problem I was having, and 
-actually found a solution. The fix is to simply use double backslashes \\ in all paths.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="s1">'data</span><span class="se">\\</span><span class="s1">testData.tsv'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Voila! Works great.</p>
-<p>But why?! Oh, because the file path is a nothing more than a string, and backslashes can begin escape characters, such as \n for a new line, or \t for tab- since \l and many other letters have no special meaning, they pass through fine.</p>
-<p>This seems obvious, but I sometimes instinctively expect parameters to be like "forms" and interpret with more relevant restrictions
-.</p>
-<p>Why am I even using backslash? I suppose I get in the habit from using windows CLI, and I swear I've worked with something that required it, but I can't recall what.</p>
-<p>Mystery solved! (TY Google.)</p>
+<p>I didn't quite finish this in time to use it until the end this year, but boy did I need a beautiful soup refresher! Hopefully next year the format won't have changed much- I may explore making a little web app with it next, just to learn some tools. :)</p>
 </div>
 </div>
 </div>
@@ -1149,11 +1225,9 @@ actually found a solution. The fix is to simply use double backslashes \\ in all
         C Withrow
     </span>
   </span>
-<time datetime="2017-04-10T16:00:00-05:00" pubdate>Mon 10 April 2017</time>  <span class="categories">
-    <a class='category' href='./category/blog.html'>Blog</a>
+<time datetime="2019-03-21T03:00:00-05:00" pubdate>Thu 21 March 2019</time>  <span class="categories">
+    <a class='category' href='./category/projects.html'>Projects</a>
   </span>
-  <span class="categories">
-    <a class="category" href="./tag/python.html">python</a>,    <a class="category" href="./tag/windows.html">windows</a>  </span>
 </p><div class="sharing">
 </div>    </footer>
   </article>
@@ -1220,9 +1294,9 @@ actually found a solution. The fix is to simply use double backslashes \\ in all
   <script src="./theme/js/octopress.js" type="text/javascript"></script>
   <script type="text/javascript">
     var disqus_shortname = 'cwithrow-github-io';
-    var disqus_identifier = '/file-paths.html';
-    var disqus_url = 'http://cwithrow.github.io/file-paths.html';
-    var disqus_title = 'Windows File Paths';
+    var disqus_identifier = '/sxsw-free-show-sorter.html';
+    var disqus_url = 'http://cwithrow.github.io/sxsw-free-show-sorter.html';
+    var disqus_title = 'SXSW Free Show Sorter';
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
